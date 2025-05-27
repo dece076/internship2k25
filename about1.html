@@ -44,24 +44,27 @@
     }
     
     html {
-      scroll-behavior: auto; /* We'll handle scrolling with JS */
+      scroll-behavior: auto;
     }
     
+    /* Modified body styles */
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--text-medium);
       background-color: var(--bg-light);
-      margin-top: 0;
-      padding-top: 0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
     
-    /* Top Bar Styles */
+    /* Top Bar Styles - modified */
     #topbar {
       height: 210px;
       background: white;
       width: 100%;
       position: relative;
       z-index: 996;
+      margin-bottom: 0 !important;
     }
 
     #topbar .logo img {
@@ -69,12 +72,13 @@
       margin: 5px 0;
     }
 
-    /* Header & Navigation Styles */
+    /* Header & Navigation Styles - modified */
     #header {
       background-color: var(--nav-green);
       width: 100%;
       height: 60px;
       padding: 0;
+      margin: 0;
       z-index: 997;
       position: sticky;
       top: 0;
@@ -85,11 +89,12 @@
       width: 100%;
       padding: 0;
       margin: 0;
+      overflow: visible;
     }
 
     .navbar {
-      width: 100%;
       padding: 0;
+      margin: 0;
       display: flex;
       justify-content: flex-start;
     }
@@ -99,65 +104,51 @@
       padding: 0;
       display: flex;
       list-style: none;
-      align-items: center;
-      gap: 0;
-      width: 100%;
     }
 
-    .navbar li {
+    .navbar > ul > li {
       position: relative;
     }
 
-    .navbar li:first-child {
-      margin-left: 0;
-    }
-
-    .navbar a,
-    .navbar a:focus {
+    .navbar > ul > li > a {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 0 15px;
+      padding: 0 8px;
       height: 60px;
+      color: #fff;
       font-size: 14px;
-      font-weight: 500;
-      color: white;
-      white-space: nowrap;
-      transition: 0.3s;
-      font-family: 'Open Sans', sans-serif;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
-    .navbar a.home-link {
-      color: var(--accent-gold);
-      font-weight: 600;
-      padding-left: 20px;
-      padding-right: 20px;
-      background-color: rgba(0, 0, 0, 0.1);
-      margin-right: 5px;
-    }
-
+    /* Dropdown styles */
     .navbar .dropdown ul {
       display: block;
       position: absolute;
       left: 0;
       top: 100%;
       margin: 0;
-      padding: 0;
+      padding: 5px 0;
       z-index: 99;
-      opacity: 0;
+      background: #ffffff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       visibility: hidden;
-      background: var(--nav-green);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: 0.3s;
+      opacity: 0;
       min-width: 250px;
-      border-radius: 0;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      transform: translateY(10px);
+    }
+
+    .navbar .dropdown:hover > ul {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .navbar .dropdown ul li {
-      width: 100%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      min-width: 250px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .navbar .dropdown ul li:last-child {
@@ -165,90 +156,54 @@
     }
 
     .navbar .dropdown ul a {
-      padding: 12px 20px;
-      font-size: 13px;
+      padding: 10px 20px;
+      font-size: 14px;
       text-transform: none;
-      color: white;
-      text-align: left;
-      justify-content: flex-start;
-      height: auto;
+      color: #333;
+      display: block;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-weight: 500;
+      background: transparent;
     }
 
-    .navbar .dropdown:hover > ul {
-      opacity: 1;
-      visibility: visible;
-      max-height: none;
-      overflow: visible;
+    .navbar .dropdown ul a:hover {
+      color: var(--nav-green);
+      background: #f8f9fa;
+      padding-left: 25px;
     }
 
+    /* Dropdown arrow */
     .navbar .dropdown > a:after {
-      content: "";
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      display: inline-block;
-      padding: 2px;
-      transform: rotate(45deg);
-      margin-left: 8px;
+      content: "▼";
+      font-size: 10px;
+      margin-left: 5px;
       position: relative;
       top: -2px;
     }
 
-    .navbar a:hover,
-    .navbar .active,
-    .navbar .active:focus,
-    .navbar li:hover > a {
-      color: var(--accent-gold);
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar .dropdown ul a:hover,
-    .navbar .dropdown ul .active:hover,
-    .navbar .dropdown ul li:hover > a {
-      color: var(--accent-gold);
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-
+    /* Mobile navigation */
     @media (max-width: 991px) {
-      .mobile-nav-toggle {
-        display: block;
-        color: white;
-        font-size: 28px;
-        cursor: pointer;
-        line-height: 0;
-        transition: 0.5s;
-        position: fixed;
-        right: 15px;
-        top: 15px;
-      }
-
-      .navbar ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--nav-green);
-        padding: 10px 0;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .navbar ul.show {
-        display: block;
-      }
-
       .navbar .dropdown ul {
         position: static;
         display: none;
+        margin: 10px 20px;
+        padding: 5px 0;
         opacity: 1;
         visibility: visible;
-        background: rgba(0, 0, 0, 0.1);
+        background: #ffffff;
         box-shadow: none;
-        padding-left: 15px;
+        transform: none;
       }
 
-      .navbar .dropdown.show ul {
-        display: block;
+      .navbar .dropdown ul a {
+        color: #333;
+        padding: 10px 15px;
+      }
+
+      .navbar .dropdown ul a:hover {
+        color: var(--nav-green);
+        background: #f8f9fa;
       }
     }
     
@@ -709,8 +664,9 @@
     <div class="d-flex">
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto home-link" href="/">Home</a></li>
-          <li class="dropdown"><a href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a href="/">HOME</a></li>
+          <li class="dropdown">
+            <a href="#"><span>ABOUT US</span></a>
             <ul>
               <li><a href="https://industries.sikkim.gov.in/visitors/orgview">Organizational Setup</a></li>
               <li><a href="https://industries.sikkim.gov.in/visitors/dics">District Industries Center</a></li>
@@ -720,7 +676,8 @@
               <li><a href="https://industries.sikkim.gov.in/visitors/psus">Public Sector Undertaking</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#">Schemes and Guidelines <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown">
+            <a href="#"><span>SCHEMES AND GUIDELINES</span></a>
             <ul>
               <li><a href="https://industries.sikkim.gov.in/visitors/odop">ODOP</a></li>
               <li><a href="https://industries.sikkim.gov.in/visitors/schemes?8">SC-ST Hub Scheme Guidelines</a></li>
@@ -729,12 +686,13 @@
               <li><a href="https://industries.sikkim.gov.in/visitors/schemes">View More</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="/visitors#contact">Grievances</a></li>
-          <li><a class="nav-link scrollto" href="https://industries.sikkim.gov.in/visitors/rtis">RTI</a></li>
-          <li><a class="nav-link scrollto" href="https://industries.sikkim.gov.in/visitors/events">Events</a></li>
-          <li><a class="nav-link scrollto" href="https://industries.sikkim.gov.in/visitors/awards">Awards & Achievements</a></li>
-          <li><a class="nav-link scrollto" href="https://industries.sikkim.gov.in/visitors/gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Invest In Sikkim</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a href="/visitors#contact">GRIEVANCES</a></li>
+          <li><a href="https://industries.sikkim.gov.in/visitors/rtis">RTI</a></li>
+          <li><a href="https://industries.sikkim.gov.in/visitors/events">EVENTS</a></li>
+          <li><a href="https://industries.sikkim.gov.in/visitors/awards">AWARDS & ACHIEVEMENTS</a></li>
+          <li><a href="https://industries.sikkim.gov.in/visitors/gallery">GALLERY</a></li>
+          <li class="dropdown">
+            <a href="#"><span>INVEST IN SIKKIM</span></a>
             <ul>
               <li><a href="/about_us.html">About Us</a></li>
               <li><a href="https://industries.sikkim.gov.in/investsik/projects.pdf">Investable Projects</a></li>
@@ -742,7 +700,8 @@
               <li><a href="https://industries.sikkim.gov.in/investsik/contactus.pdf">Contact Us</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Important Links</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown">
+            <a href="#"><span>IMPORTANT LINKS</span></a>
             <ul>
               <li><a href="https://sikkimdesignweek.com/">Sikkim Design Week</a></li>
               <li><a href="https://www.facebook.com/share/18ikrxFjYz/">Sikkim Design Week 2025</a></li>
