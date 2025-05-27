@@ -646,6 +646,13 @@
       color: var(--text-medium);
       line-height: 1.8;
     }
+
+    @media (max-width: 900px) {
+      .carousel-split-layout { flex-direction: column !important; min-height:unset !important; }
+      .carousel-text-col { padding: 32px 0 0 0 !important; }
+      .carousel-img-col { min-width:unset !important; max-width:100% !important; justify-content:center; }
+      #largeScaleCarouselImg { height: 220px !important; max-width: 100% !important; }
+    }
   </style>
 </head>
 
@@ -789,6 +796,150 @@
             </div>
           </div>
         </div>
+
+        <!-- Large Scale Projects Carousel Section -->
+        <section class="large-scale-projects-section" style="margin: 70px 0 70px 0; padding: 60px 0 70px 0; background: linear-gradient(120deg, #e8f5e9 0%, #b2dfdb 100%); box-shadow: 0 8px 40px 0 rgba(44, 62, 80, 0.10); border-radius: 32px; max-width: 1200px; margin-left: auto; margin-right: auto; position: relative;">
+          <div class="container" style="max-width: 1100px; margin: 0 auto;">
+            <div class="carousel-split-layout" style="display: flex; flex-direction: row; align-items: stretch; gap: 0; min-height: 380px;">
+              <div class="carousel-text-col" style="flex: 1.2; display: flex; flex-direction: column; justify-content: center; padding: 40px 40px 40px 0;">
+                <h2 style="color: var(--primary-green); font-size: 2.7rem; font-weight: 800; margin-bottom: 18px; text-align: left; letter-spacing: 1.5px;">Large Scale Projects</h2>
+                <p style="font-size: 1.18rem; color: var(--text-medium); margin-bottom: 32px; text-align: left; max-width: 600px;">Explore Sikkim's most ambitious investment opportunities, driving growth and innovation across key sectors. These projects offer scale, impact, and a chance to shape the future of the region.</p>
+                <div id="largeScaleProjectFeatures"></div>
+                <div style="margin-top: 32px; display: flex; gap: 18px;">
+                  <button id="carouselPrev" aria-label="Previous" style="background:white;border:2px solid var(--accent-gold);color:var(--primary-green);border-radius:50%;width:44px;height:44px;font-size:1.6rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;cursor:pointer;box-shadow:0 2px 8px rgba(44,62,80,0.08);"><span>&lt;</span></button>
+                  <button id="carouselNext" aria-label="Next" style="background:white;border:2px solid var(--accent-gold);color:var(--primary-green);border-radius:50%;width:44px;height:44px;font-size:1.6rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;cursor:pointer;box-shadow:0 2px 8px rgba(44,62,80,0.08);"><span>&gt;</span></button>
+                </div>
+              </div>
+              <div class="carousel-img-col" style="flex: 1; display: flex; align-items: center; justify-content: center; min-width: 320px;">
+                <div id="largeScaleCarouselImg" style="width: 100%; max-width: 420px; height: 320px; border-radius: 22px; box-shadow: 0 6px 32px rgba(44,62,80,0.13); background: #e0f2f1; background-size: cover; background-position: center;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <style>
+        @media (max-width: 900px) {
+          .carousel-split-layout { flex-direction: column !important; min-height:unset !important; }
+          .carousel-text-col { padding: 32px 0 0 0 !important; }
+          .carousel-img-col { min-width:unset !important; max-width:100% !important; justify-content:center; }
+          #largeScaleCarouselImg { height: 220px !important; max-width: 100% !important; }
+        }
+        </style>
+
+        <script>
+        const largeScaleProjects = [
+          {
+            name: "E-Vehicle Manufacturing & Assembling",
+            points: [
+              "4 Wheelers/ Two wheeler",
+              "Manufacture of Spare parts",
+              "Private Investment"
+            ],
+            investment: "-",
+            cost: "-",
+            image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80"
+          },
+          {
+            name: "Hydro Power Projects",
+            points: [
+              "2000 MW HEP at Teesta River belt",
+              "Investment Rs. 1000 Cr.",
+              "Private Investment"
+            ],
+            investment: "Rs. 1000 Cr.",
+            cost: "1000",
+            image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600&q=80"
+          },
+          {
+            name: "Food Park",
+            points: [
+              "Setting up of Food Park at Gyalzing",
+              "Investment Rs 50 Cr"
+            ],
+            investment: "Rs. 50 Cr.",
+            cost: "50",
+            image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80"
+          },
+          {
+            name: "Semiconductors/ Microchip Manufacturing",
+            points: [
+              "Setting up industrial Parks at Gangtok, Pakyong, Namchi, Soreng",
+              "Rs.500 Cr",
+              "Mode : PPP"
+            ],
+            investment: "Rs. 500 Cr.",
+            cost: "500",
+            image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+          },
+          {
+            name: "Film Studio & Music Academy",
+            points: [
+              "Setting up commercial Film & Music Studio at Yangang",
+              "Rs 500 Cr",
+              "Mode PPP"
+            ],
+            investment: "Rs. 500 Cr.",
+            cost: "500",
+            image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+          },
+          {
+            name: "AVGC – XR",
+            points: [
+              "Creative Design/3D/Animation clusters at Gangtok",
+              "Estimated cost Rs 50 Cr",
+              "Private Investment/PPP"
+            ],
+            investment: "Rs. 50 Cr.",
+            cost: "50",
+            image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80"
+          },
+          {
+            name: "Amusement Park",
+            points: [
+              "Near Gangtok",
+              "200 Cr",
+              "With club house, sports & Restaurants"
+            ],
+            investment: "Rs. 200 Cr.",
+            cost: "200",
+            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+          }
+        ];
+
+        let currentProjectIdx = 0;
+
+        function renderLargeScaleSplit(idx) {
+          const p = largeScaleProjects[idx];
+          // Features styled like stats
+          const featuresDiv = document.getElementById('largeScaleProjectFeatures');
+          featuresDiv.innerHTML = `
+            <div style="display:flex;flex-wrap:wrap;gap:32px 36px;align-items:center;justify-content:flex-start;">
+              <div style='min-width:180px;'>
+                <div style="font-size:2rem;font-weight:700;color:var(--primary-green);margin-bottom:2px;">${p.name}</div>
+              </div>
+              <div style='display:flex;flex-direction:column;gap:10px;'>
+                ${p.points.map(pt => `<div style='font-size:1.13rem;color:var(--text-medium);background:rgba(255,255,255,0.7);border-radius:8px;padding:6px 18px 6px 10px;box-shadow:0 2px 8px rgba(44,62,80,0.04);margin-bottom:0;'>${pt}</div>`).join('')}
+                <div style='font-size:1.13rem;color:var(--primary-green);font-weight:700;margin-top:8px;'>Investment: <span style='color:var(--text-dark);font-weight:700;'>${p.investment}</span></div>
+              </div>
+            </div>
+          `;
+          // Image
+          const imgDiv = document.getElementById('largeScaleCarouselImg');
+          imgDiv.style.backgroundImage = `url('${p.image}')`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          renderLargeScaleSplit(currentProjectIdx);
+          document.getElementById('carouselPrev').onclick = function() {
+            currentProjectIdx = (currentProjectIdx - 1 + largeScaleProjects.length) % largeScaleProjects.length;
+            renderLargeScaleSplit(currentProjectIdx);
+          };
+          document.getElementById('carouselNext').onclick = function() {
+            currentProjectIdx = (currentProjectIdx + 1) % largeScaleProjects.length;
+            renderLargeScaleSplit(currentProjectIdx);
+          };
+        });
+        </script>
 
         <!-- Project Controls -->
         <div class="row">
