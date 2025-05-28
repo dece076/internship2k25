@@ -674,6 +674,18 @@
       .carousel-text-col { padding: 32px 0 0 0 !important; }
       .carousel-img-col { min-width:unset !important; max-width:100% !important; justify-content:center; }
       #largeScaleCarouselImg { height: 220px !important; max-width: 100% !important; }
+      #carouselPrev { left: 10px !important; }
+      #carouselNext { right: 10px !important; }
+    }
+
+    /* Large Scale Projects Carousel Responsive */
+    @media (max-width: 900px) {
+      .carousel-split-layout { flex-direction: column !important; min-height:unset !important; }
+      .carousel-text-col { padding: 32px 0 0 0 !important; }
+      .carousel-img-col { min-width:unset !important; max-width:100% !important; justify-content:center; }
+      #largeScaleCarouselImg { height: 220px !important; max-width: 100% !important; }
+      #carouselPrev { left: 10px !important; }
+      #carouselNext { right: 10px !important; }
     }
   </style>
 </head>
@@ -819,21 +831,209 @@
           </div>
         </div>
 
-        <!-- Large Scale Projects Carousel Section -->
-        <section class="large-scale-projects-section" style="margin: 70px 0 70px 0; padding: 60px 0 70px 0; background: linear-gradient(120deg, #e8f5e9 0%, #b2dfdb 100%); box-shadow: 0 8px 40px 0 rgba(44, 62, 80, 0.10); border-radius: 32px; max-width: 1200px; margin-left: auto; margin-right: auto; position: relative;">
-          <div class="container" style="max-width: 1100px; margin: 0 auto;">
-            <div class="carousel-split-layout" style="display: flex; flex-direction: row; align-items: stretch; gap: 0; min-height: 380px;">
-              <div class="carousel-text-col" style="flex: 1.2; display: flex; flex-direction: column; justify-content: center; padding: 40px 40px 40px 0;">
-                <h2 style="color: var(--primary-green); font-size: 2.7rem; font-weight: 800; margin-bottom: 18px; text-align: left; letter-spacing: 1.5px;">Large Scale Projects</h2>
-                <p style="font-size: 1.18rem; color: var(--text-medium); margin-bottom: 32px; text-align: left; max-width: 600px;">Explore Sikkim's most ambitious investment opportunities, driving growth and innovation across key sectors. These projects offer scale, impact, and a chance to shape the future of the region.</p>
-                <div id="largeScaleProjectFeatures"></div>
-                <div style="margin-top: 32px; display: flex; gap: 18px;">
-                  <button id="carouselPrev" aria-label="Previous" style="background:white;border:2px solid var(--accent-gold);color:var(--primary-green);border-radius:50%;width:44px;height:44px;font-size:1.6rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;cursor:pointer;box-shadow:0 2px 8px rgba(44,62,80,0.08);"><span>&lt;</span></button>
-                  <button id="carouselNext" aria-label="Next" style="background:white;border:2px solid var(--accent-gold);color:var(--primary-green);border-radius:50%;width:44px;height:44px;font-size:1.6rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;cursor:pointer;box-shadow:0 2px 8px rgba(44,62,80,0.08);"><span>&gt;</span></button>
+        <!-- PDF Content Integration Section -->
+        <section class="pdf-content-integration" style="margin: 60px 0;">
+          <div class="container">
+            
+            <!-- Overview Section with Stats Grid -->
+            <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
+              <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
+                <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+                Sikkim At A Glance
+              </h2>
+              
+              <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="stat-item" style="background: rgba(46, 125, 50, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                  <div class="stat-value" style="font-size: 2rem; color: var(--primary-green); font-weight: 700;">7,096 km²</div>
+                  <div class="stat-label" style="color: var(--text-medium);">Geographical Area</div>
+                </div>
+                
+                <div class="stat-item" style="background: rgba(46, 125, 50, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                  <div class="stat-value" style="font-size: 2rem; color: var(--primary-green); font-weight: 700;">88.4%</div>
+                  <div class="stat-label" style="color: var(--text-medium);">Literacy Rate</div>
+                </div>
+                
+                <div class="stat-item" style="background: rgba(46, 125, 50, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                  <div class="stat-value" style="font-size: 2rem; color: var(--primary-green); font-weight: 700;">8000 MW</div>
+                  <div class="stat-label" style="color: var(--text-medium);">Hydropower Potential</div>
+                </div>
+                
+                <div class="stat-item" style="background: rgba(46, 125, 50, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                  <div class="stat-value" style="font-size: 2rem; color: var(--primary-green); font-weight: 700;">100%</div>
+                  <div class="stat-label" style="color: var(--text-medium);">Organic State</div>
                 </div>
               </div>
-              <div class="carousel-img-col" style="flex: 1; display: flex; align-items: center; justify-content: center; min-width: 320px;">
-                <div id="largeScaleCarouselImg" style="width: 100%; max-width: 420px; height: 320px; border-radius: 22px; box-shadow: 0 6px 32px rgba(44,62,80,0.13); background: #e0f2f1; background-size: cover; background-position: center;"></div>
+            </div>
+
+            <!-- Priority Sectors - Interactive Accordion -->
+            <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
+              <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
+                <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+                Priority Investment Sectors
+              </h2>
+              
+              <div class="accordion">
+                <!-- Tourism -->
+                <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                  <button class="accordion-header" style="width: 100%; text-align: left; padding: 20px; background: rgba(76, 175, 80, 0.1); border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 600; color: var(--primary-green);">Tourism & Hospitality</span>
+                    <span class="accordion-icon" style="font-size: 1.2rem;">+</span>
+                  </button>
+                  <div class="accordion-content" style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <div style="padding: 20px 0;">
+                      <ul style="margin: 0; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">19,94,214 tourists visited in 2024</li>
+                        <li style="margin-bottom: 10px;">Home to Mount Khangchendzonga (3rd highest peak)</li>
+                        <li style="margin-bottom: 10px;">UNESCO World Mixed Heritage Site (KNP)</li>
+                        <li style="margin-bottom: 10px;">Nature-Culture-Adventure Tourism</li>
+                        <li>Wellness Tourism potential</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Incentives Section with Comparison Table -->
+            <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
+              <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
+                <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+                Government Incentives & Subsidies
+              </h2>
+              
+              <div class="incentives-tabs" style="margin-bottom: 30px;">
+                <button class="tab-btn active" style="padding: 10px 20px; background: var(--primary-green); color: white; border: none; border-radius: 6px 6px 0 0; margin-right: 5px; cursor: pointer;">UNNATI Scheme</button>
+                <button class="tab-btn" style="padding: 10px 20px; background: #e0e0e0; color: var(--text-dark); border: none; border-radius: 6px 6px 0 0; cursor: pointer;">Industrial Policy</button>
+              </div>
+              
+              <div class="tab-content active" style="display: block;">
+                <h3 style="color: var(--dark-green); margin-bottom: 20px;">UNNATI Scheme Benefits</h3>
+                <div class="comparison-table" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+                    <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Zone A Benefits</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                      <li style="margin-bottom: 10px;">30% Subsidy up to ₹5 Cr</li>
+                      <li style="margin-bottom: 10px;">3% Interest Subsidy</li>
+                      <li>75% GST reimbursement</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+                    <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Zone B Benefits</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                      <li style="margin-bottom: 10px;">50% Subsidy up to ₹7.5 Cr</li>
+                      <li style="margin-bottom: 10px;">5% Interest Subsidy</li>
+                      <li>100% GST reimbursement</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-content" style="display: none;" data-tab="industrial-policy">
+                <h3 style="color: var(--dark-green); margin-bottom: 20px;">Industrial Policy Highlights</h3>
+                <div class="comparison-table" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+                    <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Key Incentives</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                      <li style="margin-bottom: 10px;">100% Stamp Duty Reimbursement</li>
+                      <li style="margin-bottom: 10px;">Power Subsidy @ ₹2/unit</li>
+                      <li style="margin-bottom: 10px;">Transport Subsidy up to 50%</li>
+                      <li>Employment Generation Subsidy</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+                    <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Special Benefits</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                      <li style="margin-bottom: 10px;">Single Window Clearance</li>
+                      <li style="margin-bottom: 10px;">Land at Concessional Rates</li>
+                      <li style="margin-bottom: 10px;">Skill Development Support</li>
+                      <li>Environmental Compliance Support</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Map Section -->
+            <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
+              <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
+                <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+                Strategic Location Advantage
+              </h2>
+              
+              <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 300px;">
+                  <div id="sikkim-map" style="height: 300px; background: #f5f7fa; border-radius: 8px; position: relative; overflow: hidden;">
+                    <!-- Map visualization would go here -->
+                    <img src="https://industries.sikkim.gov.in/assets/img/sikkim-map.jpg" alt="Sikkim Map" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px;">
+                      <div style="display: flex; justify-content: space-between;">
+                        <div>
+                          <div style="font-weight: 600;">International Borders:</div>
+                          <div>China, Bhutan, Nepal</div>
+                        </div>
+                        <div>
+                          <div style="font-weight: 600;">Connectivity:</div>
+                          <div>NH10, Pakyong Airport</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div style="flex: 1; min-width: 300px;">
+                  <h3 style="color: var(--dark-green); margin-top: 0;">Connectivity Highlights</h3>
+                  <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">1</span>
+                      <span>National Highway NH10 connects to major routes</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">2</span>
+                      <span>Pakyong Airport (30km from Gangtok) and Bagdogra Airport (88km)</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">3</span>
+                      <span>New Jalpaiguri railway station (80km) with upcoming Sikkim Railway</span>
+                    </li>
+                    <li style="display: flex; align-items: flex-start;">
+                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">4</span>
+                      <span>Highest road density in India for easy intra-state movement</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full PDF Download CTA -->
+            <div style="text-align: center; margin-top: 50px;">
+              <a href="greeninvest.pdf" download style="display: inline-flex; align-items: center; padding: 15px 30px; background: var(--primary-green); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 10px;">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v2.5a.5.5 0 0 1 .5-.5z"/>
+                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                Download Complete Investment Brochure (PDF)
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Large Scale Projects Carousel Section -->
+        <section class="large-scale-projects-section" style="margin: 70px 0 70px 0; padding: 60px 0 70px 0; background: linear-gradient(120deg, #e8f5e9 0%, #b2dfdb 100%); box-shadow: 0 8px 40px 0 rgba(44, 62, 80, 0.10); border-radius: 32px; max-width: 1200px; margin-left: auto; margin-right: auto; position: relative;">
+          <!-- Navigation Buttons - Static -->
+          <button id="carouselPrev" aria-label="Previous" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&lt;</button>
+          <button id="carouselNext" aria-label="Next" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&gt;</button>
+
+          <div class="container" style="max-width: 1100px; margin: 0 auto; overflow: hidden;">
+            <div class="carousel-split-layout" style="display: flex; flex-direction: row; align-items: stretch; gap: 0; height: 500px; transition: opacity 0.3s ease;">
+              <div class="carousel-text-col" style="flex: 1.2; display: flex; flex-direction: column; padding: 40px 40px 40px 0;">
+                <h2 style="color: var(--primary-green); font-size: 2.7rem; font-weight: 800; margin-bottom: 18px; text-align: left; letter-spacing: 1.5px;">Large Scale Projects</h2>
+                <p style="font-size: 1.18rem; color: var(--text-medium); margin-bottom: 32px; text-align: left; max-width: 600px;">Explore Sikkim's most ambitious investment opportunities, driving growth and innovation across key sectors. These projects offer scale, impact, and a chance to shape the future of the region.</p>
+                <div id="largeScaleProjectFeatures" style="height: 250px; overflow: hidden;">
+                  <!-- Content will be dynamically inserted here -->
+                </div>
+              </div>
+              <div class="carousel-img-col" style="flex: 1; display: flex; align-items: center; justify-content: center; min-width: 320px; padding: 20px;">
+                <div id="largeScaleCarouselImg" style="width: 100%; max-width: 420px; height: 320px; border-radius: 22px; box-shadow: 0 6px 32px rgba(44,62,80,0.13); background: #e0f2f1; background-size: cover; background-position: center; transition: opacity 0.3s ease;"></div>
               </div>
             </div>
           </div>
@@ -841,10 +1041,32 @@
 
         <style>
         @media (max-width: 900px) {
-          .carousel-split-layout { flex-direction: column !important; min-height:unset !important; }
-          .carousel-text-col { padding: 32px 0 0 0 !important; }
-          .carousel-img-col { min-width:unset !important; max-width:100% !important; justify-content:center; }
-          #largeScaleCarouselImg { height: 220px !important; max-width: 100% !important; }
+          .carousel-split-layout { 
+            flex-direction: column !important;
+            height: auto !important;
+          }
+          .carousel-text-col { 
+            padding: 32px 20px !important;
+          }
+          .carousel-img-col { 
+            min-width: unset !important; 
+            max-width: 100% !important; 
+            justify-content: center;
+            padding: 0 20px 32px 20px !important;
+          }
+          #largeScaleCarouselImg { 
+            height: 220px !important; 
+            max-width: 100% !important;
+          }
+          #largeScaleProjectFeatures {
+            height: 300px !important;
+          }
+          #carouselPrev { 
+            left: 10px !important;
+          }
+          #carouselNext { 
+            right: 10px !important;
+          }
         }
         </style>
 
@@ -931,53 +1153,91 @@
         let currentProjectIdx = 0;
 
         function renderLargeScaleSplit(idx) {
-          const p = largeScaleProjects[idx];
-          // Features styled like stats
-          const featuresDiv = document.getElementById('largeScaleProjectFeatures');
-          featuresDiv.innerHTML = `
-            <div style="display:flex;flex-wrap:wrap;gap:32px 36px;align-items:center;justify-content:flex-start;">
-              <div style='min-width:180px;'>
-                <div style="font-size:2rem;font-weight:700;color:var(--primary-green);margin-bottom:2px;">${p.name}</div>
+          const container = document.querySelector('.carousel-split-layout');
+          const img = document.getElementById('largeScaleCarouselImg');
+          const features = document.getElementById('largeScaleProjectFeatures');
+          
+          // Start fade out
+          container.style.opacity = '0';
+          
+          setTimeout(() => {
+            const p = largeScaleProjects[idx];
+            // Update content with fixed layout
+            features.innerHTML = `
+              <div style="height: 100%; display: flex; flex-direction: column;">
+                <div style="margin-bottom: 20px;">
+                  <div style="font-size: 2rem; font-weight: 700; color: var(--primary-green);">${p.name}</div>
+                </div>
+                <div style="flex: 1; overflow-y: auto; padding-right: 10px;">
+                  ${p.points.map(pt => `
+                    <div style="font-size: 1.13rem; color: var(--text-medium); background: rgba(255,255,255,0.7); border-radius: 8px; padding: 12px 18px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); margin-bottom: 10px;">
+                      ${pt}
+                    </div>
+                  `).join('')}
+                  <div style="font-size: 1.13rem; color: var(--primary-green); font-weight: 700; background: rgba(255,255,255,0.7); border-radius: 8px; padding: 12px 18px; box-shadow: 0 2px 8px rgba(44,62,80,0.04);">
+                    Investment: <span style="color: var(--text-dark); font-weight: 700;">${p.investment}</span>
+                  </div>
+                </div>
               </div>
-              <div style='display:flex;flex-direction:column;gap:10px;'>
-                ${p.points.map(pt => `<div style='font-size:1.13rem;color:var(--text-medium);background:rgba(255,255,255,0.7);border-radius:8px;padding:6px 18px 6px 10px;box-shadow:0 2px 8px rgba(44,62,80,0.04);margin-bottom:0;'>${pt}</div>`).join('')}
-                <div style='font-size:1.13rem;color:var(--primary-green);font-weight:700;margin-top:8px;'>Investment: <span style='color:var(--text-dark);font-weight:700;'>${p.investment}</span></div>
-              </div>
-            </div>
-          `;
-          // Image
-          const imgDiv = document.getElementById('largeScaleCarouselImg');
-          imgDiv.style.backgroundImage = `url('${p.image}')`;
+            `;
+
+            img.style.backgroundImage = `url('${p.image}')`;
+            
+            // Fade back in
+            container.style.opacity = '1';
+          }, 300);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
           renderLargeScaleSplit(currentProjectIdx);
+          
           document.getElementById('carouselPrev').onclick = function() {
             currentProjectIdx = (currentProjectIdx - 1 + largeScaleProjects.length) % largeScaleProjects.length;
             renderLargeScaleSplit(currentProjectIdx);
           };
+          
           document.getElementById('carouselNext').onclick = function() {
             currentProjectIdx = (currentProjectIdx + 1) % largeScaleProjects.length;
             renderLargeScaleSplit(currentProjectIdx);
           };
+
+          // Add hover effects for buttons
+          ['carouselPrev', 'carouselNext'].forEach(id => {
+            const btn = document.getElementById(id);
+            btn.onmouseover = () => {
+              btn.style.background = 'var(--primary-green)';
+              btn.style.color = 'white';
+              btn.style.transform = 'translateY(-50%) scale(1.1)';
+            };
+            btn.onmouseout = () => {
+              btn.style.background = 'white';
+              btn.style.color = 'var(--primary-green)';
+              btn.style.transform = 'translateY(-50%) scale(1)';
+            };
+          });
         });
         </script>
 
-        <!-- Project Controls -->
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="mb-4" style="color: var(--primary-green);">Investment Opportunities</h3>
-            <div class="controls">
-              <input type="text" id="searchInput" placeholder="Search by project or location" onkeyup="filterProjects()">
+        <!-- Project Cards Section -->
+        <section class="project-cards-section" style="margin: 60px 0;">
+          <div class="container">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
+              <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+              Investment Opportunities
+            </h2>
+
+            <!-- Project Controls -->
+            <div class="controls" style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 15px;">
+              <input type="text" id="searchInput" placeholder="Search by project or location" onkeyup="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; flex: 1; min-width: 200px;">
               
-              <select id="modeFilter" onchange="filterProjects()">
+              <select id="modeFilter" onchange="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; min-width: 150px;">
                 <option value="">All Modes</option>
                 <option value="Private">Private</option>
                 <option value="PPP">PPP</option>
                 <option value="Joint Venture">Joint Venture</option>
               </select>
 
-              <select id="sectorFilter" onchange="filterProjects()">
+              <select id="sectorFilter" onchange="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; min-width: 150px;">
                 <option value="">All Sectors</option>
                 <option value="Energy">Energy</option>
                 <option value="Tourism">Tourism</option>
@@ -990,13 +1250,243 @@
               </select>
             </div>
 
-            <!-- Project Cards Grid -->
-            <div class="grid" id="projectGrid"></div>
+            <!-- Project Cards Container with Navigation -->
+            <div style="position: relative;">
+              <div class="grid" id="projectGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; transition: transform 0.5s ease-in-out;"></div>
+              
+              <!-- Navigation Arrows -->
+              <button id="prevProjects" onclick="navigateProjects('prev')" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); opacity: 0.5; transition: opacity 0.3s ease;">&lt;</button>
+              <button id="nextProjects" onclick="navigateProjects('next')" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); transition: opacity 0.3s ease;">&gt;</button>
+            </div>
+
+            <!-- Project Cards JavaScript -->
+            <script>
+            // Project data and functions
+            const projects = [
+              {
+                name: "Small Hydro Power Projects",
+                location: "Teesta, Rangit River basin",
+                cost: "8000",
+                mode: "Private",
+                sector: "Energy",
+                employment: "500+ direct jobs",
+                support: "Facilitation for survey & Project Clearance",
+                features: "Clean energy generation, Long-term PPA with state, High ROI potential",
+                image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "Gangtok Ropeway Project",
+                location: "Gangtok",
+                cost: "500",
+                mode: "PPP",
+                sector: "Tourism",
+                employment: "150+ direct and indirect jobs",
+                support: "Land allocation, Regulatory approvals",
+                features: "Scenic mountain views, High tourist footfall, Integrated with urban transport",
+                image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "IT/ITES/BPO Park",
+                location: "Gangtok, Namchi",
+                cost: "100",
+                mode: "Private",
+                sector: "IT",
+                employment: "300+ skilled jobs",
+                support: "Tax holidays, Infrastructure support",
+                features: "High-speed connectivity, Skilled English-speaking workforce, Peaceful environment",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "e-Vehicle Spare Parts Manufacturing",
+                location: "Pakyong",
+                cost: "200",
+                mode: "Private",
+                sector: "Manufacturing",
+                employment: "250+ jobs",
+                support: "Subsidized land rates, Training support",
+                features: "Proximity to ASEAN markets, Green industry incentives, Local skill development",
+                image: "https://images.unsplash.com/photo-1593941707882-a5bb43a3841e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "International Residential School",
+                location: "Pakyong",
+                cost: "100",
+                mode: "Private",
+                sector: "Education",
+                employment: "100+ teaching and non-teaching jobs",
+                support: "Land allocation, Regulatory approvals",
+                features: "Scenic location, Demand for quality education, Potential for international students",
+                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "Organic Food Processing Unit",
+                location: "Soreng, Gyalzing",
+                cost: "20",
+                mode: "PPP",
+                sector: "Agro",
+                employment: "50+ direct jobs",
+                support: "Part funding by Govt. schemes",
+                features: "Access to organic raw materials, Branding support, Export potential",
+                image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "Hazardous Waste Management Facility",
+                location: "Rangpo, Melli",
+                cost: "30",
+                mode: "PPP",
+                sector: "Waste Management",
+                employment: "40+ jobs",
+                support: "Subsidized land, Waste collection contracts",
+                features: "Growing industrial waste, Environmental impact, Long-term contracts",
+                image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              },
+              {
+                name: "Ayurvedic Wellness Resort",
+                location: "Ravangla",
+                cost: "75",
+                mode: "Private",
+                sector: "Healthcare",
+                employment: "80+ jobs",
+                support: "Single window clearance, Marketing support",
+                features: "Medicinal plant access, Tourism synergy, Wellness tourism growth",
+                image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              }
+            ];
+
+            let currentPage = 0;
+            const projectsPerPage = 8;
+
+            function renderProjects(data) {
+              const grid = document.getElementById('projectGrid');
+              grid.innerHTML = '';
+              
+              if (data.length === 0) {
+                grid.innerHTML = '<div class="col-12 text-center py-5"><h5>No projects found matching your criteria</h5></div>';
+                return;
+              }
+
+              // Calculate total pages
+              const totalPages = Math.ceil(data.length / projectsPerPage);
+              
+              // Get current page's projects
+              const start = currentPage * projectsPerPage;
+              const end = start + projectsPerPage;
+              const currentProjects = data.slice(start, end);
+              
+              // Update navigation buttons
+              document.getElementById('prevProjects').style.opacity = currentPage === 0 ? '0.5' : '1';
+              document.getElementById('nextProjects').style.opacity = currentPage >= totalPages - 1 ? '0.5' : '1';
+              
+              // Render current page's projects
+              currentProjects.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.innerHTML = `
+                  <div class="card-img" style="background-image: url('${p.image}')"></div>
+                  <div class="card-content">
+                    <h3>${p.name}</h3>
+                    <p><strong>Investment:</strong> ₹${p.cost} Cr</p>
+                    <p><strong>Location:</strong> ${p.location}</p>
+                    <span class="card-tag">${p.sector}</span>
+                    <span class="card-tag">${p.mode}</span>
+                  </div>
+                `;
+                card.onclick = () => openModal(p);
+                grid.appendChild(card);
+                
+                // Trigger animation after a small delay
+                setTimeout(() => {
+                  card.style.opacity = '1';
+                  card.style.transform = 'translateY(0)';
+                }, 50);
+              });
+            }
+
+            function navigateProjects(direction) {
+              const filteredProjects = getFilteredProjects();
+              const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+              
+              if (direction === 'next' && currentPage < totalPages - 1) {
+                currentPage++;
+              } else if (direction === 'prev' && currentPage > 0) {
+                currentPage--;
+              }
+              
+              renderProjects(filteredProjects);
+            }
+
+            function getFilteredProjects() {
+              const search = document.getElementById('searchInput').value.toLowerCase();
+              const mode = document.getElementById('modeFilter').value;
+              const sector = document.getElementById('sectorFilter').value;
+
+              return projects.filter(p => {
+                return (
+                  (p.name.toLowerCase().includes(search) || p.location.toLowerCase().includes(search)) &&
+                  (mode === '' || p.mode === mode) &&
+                  (sector === '' || p.sector === sector)
+                );
+              });
+            }
+
+            function filterProjects() {
+              currentPage = 0; // Reset to first page when filtering
+              renderProjects(getFilteredProjects());
+            }
+
+            function openModal(project) {
+              document.getElementById('modalTitle').textContent = project.name;
+              document.getElementById('modalLocation').textContent = project.location;
+              document.getElementById('modalCost').textContent = project.cost;
+              document.getElementById('modalMode').textContent = project.mode;
+              document.getElementById('modalSector').textContent = project.sector;
+              document.getElementById('modalEmployment').textContent = project.employment;
+              document.getElementById('modalSupport').textContent = project.support;
+              document.getElementById('modalFeatures').textContent = project.features;
+              document.getElementById('projectModal').style.display = 'flex';
+            }
+
+            function closeModal() {
+              document.getElementById('projectModal').style.display = 'none';
+            }
+
+            // Initialize
+            document.addEventListener('DOMContentLoaded', function() {
+              renderProjects(projects);
+              
+              // Add tab functionality
+              const tabBtns = document.querySelectorAll('.tab-btn');
+              const tabContents = document.querySelectorAll('.tab-content');
+              
+              tabBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                  // Remove active class from all buttons and contents
+                  tabBtns.forEach(b => {
+                    b.style.background = '#e0e0e0';
+                    b.style.color = 'var(--text-dark)';
+                  });
+                  tabContents.forEach(content => {
+                    content.style.display = 'none';
+                  });
+                  
+                  // Add active class to clicked button
+                  this.style.background = 'var(--primary-green)';
+                  this.style.color = 'white';
+                  
+                  // Show corresponding content
+                  tabContents[index].style.display = 'block';
+                });
+              });
+            });
+            </script>
 
             <!-- Modal for Project Details -->
-            <div class="modal" id="projectModal" onclick="closeModal()">
-              <div class="modal-content" onclick="event.stopPropagation();">
-                <h2 id="modalTitle"></h2>
+            <div class="modal" id="projectModal" onclick="closeModal()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+              <div class="modal-content" onclick="event.stopPropagation();" style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 5px 30px rgba(0,0,0,0.3); position: relative;">
+                <h2 id="modalTitle" style="color: var(--primary-green); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--lighter-green);"></h2>
                 <p><strong>Location:</strong> <span id="modalLocation"></span></p>
                 <p><strong>Investment:</strong> ₹<span id="modalCost"></span> Cr</p>
                 <p><strong>Mode:</strong> <span id="modalMode"></span></p>
@@ -1004,85 +1494,85 @@
                 <p><strong>Employment Potential:</strong> <span id="modalEmployment"></span></p>
                 <p><strong>Govt. Support:</strong> <span id="modalSupport"></span></p>
                 <p><strong>Key Features:</strong> <span id="modalFeatures"></span></p>
-                <button onclick="closeModal()">Close</button>
+                <button onclick="closeModal()" style="background-color: var(--primary-green); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: all 0.3s;">Close</button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Pre-footer -->
-    <section class="pre-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Ready to Invest in Sikkim?</h3>
-            <p>Sikkim offers a unique combination of natural beauty, strategic location, and investor-friendly policies. Our dedicated team is here to guide you through every step of your investment journey.</p>
-            <a href="#" class="btn btn-outline-light">Contact Our Investment Team</a>
-          </div>
-          <div class="col-md-6">
-            <h3>Investment Support</h3>
-            <ul class="feature-list">
-              <li>Single window clearance for all approvals</li>
-              <li>Dedicated project facilitation team</li>
-              <li>Customized incentive packages</li>
-              <li>Aftercare services for existing investors</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Links Footer -->
-    <section class="links-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Investment Opportunities</a></li>
-              <li><a href="#">Policies & Incentives</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h3>Investment Sectors</h3>
-            <ul>
-              <li><a href="#">Hydropower & Renewable Energy</a></li>
-              <li><a href="#">Tourism & Hospitality</a></li>
-              <li><a href="#">Organic Agriculture</a></li>
-              <li><a href="#">IT & ITES</a></li>
-              <li><a href="#">Pharmaceuticals</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h3>Contact Us</h3>
-            <div class="contact-info">
-              <p>Department of Commerce & Industries<br>
-              Government of Sikkim<br>
-              Gangtok - 737101</p>
-              <p><strong>Phone:</strong> +91 3592 202076</p>
-              <p><strong>Email:</strong> industries-sik@gov.in</p>
+        <!-- Pre-footer -->
+        <section class="pre-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Ready to Invest in Sikkim?</h3>
+                <p>Sikkim offers a unique combination of natural beauty, strategic location, and investor-friendly policies. Our dedicated team is here to guide you through every step of your investment journey.</p>
+                <a href="#" class="btn btn-outline-light">Contact Our Investment Team</a>
+              </div>
+              <div class="col-md-6">
+                <h3>Investment Support</h3>
+                <ul class="feature-list">
+                  <li>Single window clearance for all approvals</li>
+                  <li>Dedicated project facilitation team</li>
+                  <li>Customized incentive packages</li>
+                  <li>Aftercare services for existing investors</li>
+                </ul>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="col-lg-3 col-md-6">
-            <h3>About Sikkim</h3>
-            <div class="about-text">
-              <p>Sikkim is India's first organic state and one of the most peaceful regions in the country. With its breathtaking landscapes, rich biodiversity, and investor-friendly policies, Sikkim offers unique opportunities for sustainable development.</p>
+        <!-- Links Footer -->
+        <section class="links-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6">
+                <h3>Quick Links</h3>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Investment Opportunities</a></li>
+                  <li><a href="#">Policies & Incentives</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6">
+                <h3>Investment Sectors</h3>
+                <ul>
+                  <li><a href="#">Hydropower & Renewable Energy</a></li>
+                  <li><a href="#">Tourism & Hospitality</a></li>
+                  <li><a href="#">Organic Agriculture</a></li>
+                  <li><a href="#">IT & ITES</a></li>
+                  <li><a href="#">Pharmaceuticals</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                  <p>Department of Commerce & Industries<br>
+                  Government of Sikkim<br>
+                  Gangtok - 737101</p>
+                  <p><strong>Phone:</strong> +91 3592 202076</p>
+                  <p><strong>Email:</strong> industries-sik@gov.in</p>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6">
+                <h3>About Sikkim</h3>
+                <div class="about-text">
+                  <p>Sikkim is India's first organic state and one of the most peaceful regions in the country. With its breathtaking landscapes, rich biodiversity, and investor-friendly policies, Sikkim offers unique opportunities for sustainable development.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   </main>
 
-  <!-- Original Footer ss-->
+  <!-- Original Footer -->
   <footer id="footer">
     <div class="footer-top">
     </div>
@@ -1107,7 +1597,7 @@
     </div>
   </footer>
 
-  <!-- Additional JSsssss Files -->
+  <!-- Additional JS Files -->
   <script src="https://industries.sikkim.gov.in/assets/admin/assets/js/backend-bundle.min.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/admin/assets/js/table-treeview.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/admin/assets/js/customizer.js"></script>
@@ -1119,192 +1609,5 @@
   <script src="https://industries.sikkim.gov.in/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/vendor/php-email-form/validate.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/js/main.js"></script>
-
-  <!-- Keep all existing scripts -->
-  <script>
-    const projects = [
-      {
-        name: "Small Hydro Power Projects",
-        location: "Teesta, Rangit River basin",
-        cost: "8000",
-        mode: "Private",
-        sector: "Energy",
-        employment: "500+ direct jobs",
-        support: "Facilitation for survey & Project Clearance",
-        features: "Clean energy generation, Long-term PPA with state, High ROI potential",
-        image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "Gangtok Ropeway Project",
-        location: "Gangtok",
-        cost: "500",
-        mode: "PPP",
-        sector: "Tourism",
-        employment: "150+ direct and indirect jobs",
-        support: "Land allocation, Regulatory approvals",
-        features: "Scenic mountain views, High tourist footfall, Integrated with urban transport",
-        image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "IT/ITES/BPO Park",
-        location: "Gangtok, Namchi",
-        cost: "100",
-        mode: "Private",
-        sector: "IT",
-        employment: "300+ skilled jobs",
-        support: "Tax holidays, Infrastructure support",
-        features: "High-speed connectivity, Skilled English-speaking workforce, Peaceful environment",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "e-Vehicle Spare Parts Manufacturing",
-        location: "Pakyong",
-        cost: "200",
-        mode: "Private",
-        sector: "Manufacturing",
-        employment: "250+ jobs",
-        support: "Subsidized land rates, Training support",
-        features: "Proximity to ASEAN markets, Green industry incentives, Local skill development",
-        image: "https://images.unsplash.com/photo-1593941707882-a5bb43a3841e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "International Residential School",
-        location: "Pakyong",
-        cost: "100",
-        mode: "Private",
-        sector: "Education",
-        employment: "100+ teaching and non-teaching jobs",
-        support: "Land allocation, Regulatory approvals",
-        features: "Scenic location, Demand for quality education, Potential for international students",
-        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "Organic Food Processing Unit",
-        location: "Soreng, Gyalzing",
-        cost: "20",
-        mode: "PPP",
-        sector: "Agro",
-        employment: "50+ direct jobs",
-        support: "Part funding by Govt. schemes",
-        features: "Access to organic raw materials, Branding support, Export potential",
-        image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "Hazardous Waste Management Facility",
-        location: "Rangpo, Melli",
-        cost: "30",
-        mode: "PPP",
-        sector: "Waste Management",
-        employment: "40+ jobs",
-        support: "Subsidized land, Waste collection contracts",
-        features: "Growing industrial waste, Environmental impact, Long-term contracts",
-        image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      },
-      {
-        name: "Ayurvedic Wellness Resort",
-        location: "Ravangla",
-        cost: "75",
-        mode: "Private",
-        sector: "Healthcare",
-        employment: "80+ jobs",
-        support: "Single window clearance, Marketing support",
-        features: "Medicinal plant access, Tourism synergy, Wellness tourism growth",
-        image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-      }
-    ];
-
-    function renderProjects(data) {
-      const grid = document.getElementById('projectGrid');
-      grid.innerHTML = '';
-      
-      if (data.length === 0) {
-        grid.innerHTML = '<div class="col-12 text-center py-5"><h5>No projects found matching your criteria</h5></div>';
-        return;
-      }
-      
-      data.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <div class="card-img" style="background-image: url('${p.image}')"></div>
-          <div class="card-content">
-            <h3>${p.name}</h3>
-            <p><strong>Investment:</strong> ₹${p.cost} Cr</p>
-            <p><strong>Location:</strong> ${p.location}</p>
-            <span class="card-tag">${p.sector}</span>
-            <span class="card-tag">${p.mode}</span>
-          </div>
-        `;
-        card.onclick = () => openModal(p);
-        grid.appendChild(card);
-      });
-    }
-
-    function filterProjects() {
-      const search = document.getElementById('searchInput').value.toLowerCase();
-      const mode = document.getElementById('modeFilter').value;
-      const sector = document.getElementById('sectorFilter').value;
-
-      const filtered = projects.filter(p => {
-        return (
-          (p.name.toLowerCase().includes(search) || p.location.toLowerCase().includes(search)) &&
-          (mode === '' || p.mode === mode) &&
-          (sector === '' || p.sector === sector)
-        );
-      });
-
-      renderProjects(filtered);
-    }
-
-    function openModal(project) {
-      document.getElementById('modalTitle').textContent = project.name;
-      document.getElementById('modalLocation').textContent = project.location;
-      document.getElementById('modalCost').textContent = project.cost;
-      document.getElementById('modalMode').textContent = project.mode;
-      document.getElementById('modalSector').textContent = project.sector;
-      document.getElementById('modalEmployment').textContent = project.employment;
-      document.getElementById('modalSupport').textContent = project.support;
-      document.getElementById('modalFeatures').textContent = project.features;
-      document.getElementById('projectModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('projectModal').style.display = 'none';
-    }
-
-    // Initial render
-    renderProjects(projects);
-
-    // Enhanced scroll functionality
-    document.querySelector('.banner-content .btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Start fade out animations
-      document.querySelector('.banner-content').classList.add('fade-out');
-      document.querySelector('.hero-banner').classList.add('fade-out');
-      
-      // Calculate scroll position
-      const targetSection = document.querySelector('#main-content');
-      const headerOffset = 80; // Height of fixed header
-      const elementPosition = targetSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
-      // Delayed smooth scroll
-      setTimeout(() => {
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }, 300); // Slight delay to allow fade animation to start
-    });
-
-    // Reset banner animations when scrolling back to top
-    window.addEventListener('scroll', function() {
-      if (window.scrollY < 100) {
-        document.querySelector('.banner-content').classList.remove('fade-out');
-        document.querySelector('.hero-banner').classList.remove('fade-out');
-      }
-    });
-  </script>
 </body>
 </html>
