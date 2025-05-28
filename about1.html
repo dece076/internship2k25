@@ -1017,18 +1017,89 @@
           </div>
         </section>
 
-        <!-- Large Scale Projects Carousel Section -->
+        <!-- Large Scale Projects Section -->
         <section class="large-scale-projects-section" style="margin: 70px 0 70px 0; padding: 60px 0 70px 0; background: linear-gradient(120deg, #e8f5e9 0%, #b2dfdb 100%); box-shadow: 0 8px 40px 0 rgba(44, 62, 80, 0.10); border-radius: 32px; max-width: 1200px; margin-left: auto; margin-right: auto; position: relative;">
-          <!-- Navigation Buttons - Static -->
-          <button id="carouselPrev" aria-label="Previous" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&lt;</button>
-          <button id="carouselNext" aria-label="Next" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&gt;</button>
+          
+          <!-- Static Investment Statistics -->
+          <div class="container" style="max-width: 1100px; margin: 0 auto; margin-bottom: 50px;">
+            <div style="background: rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 25px; box-shadow: 0 4px 25px rgba(46, 125, 50, 0.1);">
+              <div style="display: flex; align-items: center; gap: 30px;">
+                <!-- Title and Description -->
+                <div style="flex: 0 0 250px;">
+                  <h3 style="color: var(--primary-green); font-size: 1.8rem; font-weight: 700; margin-bottom: 8px;">Investment Highlights</h3>
+                  <p style="color: var(--text-medium); font-size: 0.95rem; margin: 0;">Sikkim's Key Investment Opportunities</p>
+                </div>
 
+                <!-- Stats Cards -->
+                <div style="display: flex; gap: 15px; flex: 1;">
+                  <!-- Total Investment Card -->
+                  <div style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%); padding: 15px 20px; border-radius: 12px; color: white; flex: 1; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 0.9rem; opacity: 0.9;">Total Investment</div>
+                    <div style="font-size: 1.5rem; font-weight: 800;">₹2,400 Cr</div>
+                  </div>
+                  
+                  <!-- Projects Card -->
+                  <div style="background: linear-gradient(135deg, #ffd700 0%, #ffa000 100%); padding: 15px 20px; border-radius: 12px; color: #1b5e20; flex: 1; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 0.9rem;">Major Projects</div>
+                    <div style="font-size: 1.5rem; font-weight: 800;">7+</div>
+                  </div>
+                  
+                  <!-- Sectors Card -->
+                  <div style="background: linear-gradient(135deg, #81c784 0%, #4caf50 100%); padding: 15px 20px; border-radius: 12px; color: white; flex: 1; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 0.9rem; opacity: 0.9;">Priority Sectors</div>
+                    <div style="font-size: 1.5rem; font-weight: 800;">5+</div>
+                  </div>
+                </div>
+
+                <!-- Key Sectors Pills -->
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; flex: 0 0 400px; justify-content: flex-end;">
+                  <div style="background: rgba(46, 125, 50, 0.1); color: var(--primary-green); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; white-space: nowrap;">
+                    🏭 Manufacturing
+                  </div>
+                  <div style="background: rgba(46, 125, 50, 0.1); color: var(--primary-green); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; white-space: nowrap;">
+                    ⚡ Energy
+                  </div>
+                  <div style="background: rgba(46, 125, 50, 0.1); color: var(--primary-green); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; white-space: nowrap;">
+                    🌿 Agriculture
+                  </div>
+                  <div style="background: rgba(46, 125, 50, 0.1); color: var(--primary-green); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; white-space: nowrap;">
+                    🎬 Media
+                  </div>
+                  <div style="background: rgba(46, 125, 50, 0.1); color: var(--primary-green); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; white-space: nowrap;">
+                    💻 IT/ITES
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+          @media (max-width: 1200px) {
+            .container > div > div {
+              flex-direction: column;
+              gap: 20px;
+            }
+            .container > div > div > div {
+              flex: none !important;
+              width: 100%;
+            }
+            .container > div > div > div:last-child {
+              justify-content: center;
+            }
+          }
+          </style>
+
+          <!-- Existing Carousel Section -->
           <div class="container" style="max-width: 1100px; margin: 0 auto; overflow: hidden;">
+            <h2 style="color: var(--primary-green); font-size: 2.7rem; font-weight: 800; margin-bottom: 30px; text-align: center; letter-spacing: 1.5px;">Featured Projects</h2>
+            
+            <!-- Navigation Buttons -->
+            <button id="carouselPrev" aria-label="Previous" style="position: absolute; left: 20px; top: 60%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&lt;</button>
+            <button id="carouselNext" aria-label="Next" style="position: absolute; right: 20px; top: 60%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&gt;</button>
+
             <div class="carousel-split-layout" style="display: flex; flex-direction: row; align-items: stretch; gap: 0; height: 500px; transition: opacity 0.3s ease;">
               <div class="carousel-text-col" style="flex: 1.2; display: flex; flex-direction: column; padding: 40px 40px 40px 0;">
-                <h2 style="color: var(--primary-green); font-size: 2.7rem; font-weight: 800; margin-bottom: 18px; text-align: left; letter-spacing: 1.5px;">Large Scale Projects</h2>
-                <p style="font-size: 1.18rem; color: var(--text-medium); margin-bottom: 32px; text-align: left; max-width: 600px;">Explore Sikkim's most ambitious investment opportunities, driving growth and innovation across key sectors. These projects offer scale, impact, and a chance to shape the future of the region.</p>
-                <div id="largeScaleProjectFeatures" style="height: 250px; overflow: hidden;">
+                <div id="largeScaleProjectFeatures" style="height: 100%; overflow: hidden;">
                   <!-- Content will be dynamically inserted here -->
                 </div>
               </div>
@@ -1063,9 +1134,11 @@
           }
           #carouselPrev { 
             left: 10px !important;
+            top: 70% !important;
           }
           #carouselNext { 
             right: 10px !important;
+            top: 70% !important;
           }
         }
         </style>
