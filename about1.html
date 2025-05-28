@@ -844,33 +844,181 @@
         <section class="pdf-content-integration" style="margin: 60px 0;">
           <div class="container">
             
-            <!-- Priority Sectors - Interactive Accordion -->
+            <!-- Priority Sectors Section -->
             <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
-              <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
-                <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
-                Priority Investment Sectors
-              </h2>
-              
-              <div class="accordion">
-                <!-- Tourism -->
-                <div class="accordion-item" style="margin-bottom: 15px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-                  <button class="accordion-header" style="width: 100%; text-align: left; padding: 20px; background: rgba(76, 175, 80, 0.1); border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 600; color: var(--primary-green);">Tourism & Hospitality</span>
-                    <span class="accordion-icon" style="font-size: 1.2rem;">+</span>
-                  </button>
-                  <div class="accordion-content" style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                    <div style="padding: 20px 0;">
-                      <ul style="margin: 0; padding-left: 20px;">
-                        <li style="margin-bottom: 10px;">19,94,214 tourists visited in 2024</li>
-                        <li style="margin-bottom: 10px;">Home to Mount Khangchendzonga (3rd highest peak)</li>
-                        <li style="margin-bottom: 10px;">UNESCO World Mixed Heritage Site (KNP)</li>
-                        <li style="margin-bottom: 10px;">Nature-Culture-Adventure Tourism</li>
-                        <li>Wellness Tourism potential</li>
-                      </ul>
-                    </div>
+              <div class="sector-visualization" style="max-width: 1200px; margin: 40px auto; position: relative;">
+                <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 40px; font-size: 2rem;">
+                  <span style="display: inline-block; position: relative;">
+                    Sikkim's Priority Sectors
+                    <span style="position: absolute; bottom: -10px; left: 0; width: 100%; height: 3px; background: var(--accent-gold);"></span>
+                  </span>
+                </h2>
+
+                <div class="radial-container" style="position: relative; width: 100%; height: 450px;">
+                  <!-- Central Circle -->
+                  <div class="central-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(46, 125, 50, 0.2); z-index: 2; text-align: center;">
+                    Priority<br>Sectors
                   </div>
+                  
+                  <!-- Sector Nodes -->
+                  <div class="sector-node" data-sector="tourism" style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1; padding: 10px;">
+                    <div style="font-size: 1.6rem; line-height: 1;">🏔️</div>
+                    <div style="font-size: 0.75rem; font-weight: 600; color: var(--primary-green); text-align: center; line-height: 1.2;">Tourism</div>
+                  </div>
+                  
+                  <div class="sector-node" data-sector="agri" style="position: absolute; top: 50%; left: 12%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1; padding: 10px;">
+                    <div style="font-size: 1.6rem; line-height: 1;">🌱</div>
+                    <div style="font-size: 0.75rem; font-weight: 600; color: var(--primary-green); text-align: center; line-height: 1.2;">Agri-Horti<br>Food</div>
+                  </div>
+                  
+                  <div class="sector-node" data-sector="pharma" style="position: absolute; top: 50%; left: 88%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1; padding: 10px;">
+                    <div style="font-size: 1.6rem; line-height: 1;">💊</div>
+                    <div style="font-size: 0.75rem; font-weight: 600; color: var(--primary-green); text-align: center; line-height: 1.2;">Pharma</div>
+                  </div>
+                  
+                  <div class="sector-node" data-sector="it" style="position: absolute; top: 22%; left: 18%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1;">
+                    <div style="font-size: 1.8rem;">💻</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary-green); text-align: center;">IT & ITes</div>
+                  </div>
+
+                  <div class="sector-node" data-sector="hydro" style="position: absolute; top: 22%; left: 82%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1;">
+                    <div style="font-size: 1.8rem;">⚡</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary-green); text-align: center;">Micro Hydro Power</div>
+                  </div>
+
+                  <div class="sector-node" data-sector="arts" style="position: absolute; top: 78%; left: 18%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1;">
+                    <div style="font-size: 1.8rem;">🎨</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary-green); text-align: center;">Arts & Crafts</div>
+                  </div>
+
+                  <div class="sector-node" data-sector="entertainment" style="position: absolute; top: 78%; left: 82%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--light-green); z-index: 1;">
+                    <div style="font-size: 1.8rem;">🎬</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary-green); text-align: center;">Film, Music & Sports</div>
+                  </div>
+
+                  <!-- Connection Lines -->
+                  <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; z-index: 0;">
+                    <!-- Vertical connection to center -->
+                    <line x1="50%" y1="13%" x2="50%" y2="42%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                    
+                    <!-- Left side connections -->
+                    <line x1="17%" y1="50%" x2="42%" y2="50%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                    <line x1="23%" y1="27%" x2="42%" y2="45%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                    <line x1="23%" y1="73%" x2="42%" y2="55%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                    
+                    <!-- Right side connections -->
+                    <line x1="83%" y1="50%" x2="58%" y2="50%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                    <line x1="77%" y1="27%" x2="58%" y2="45%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                    <line x1="77%" y1="73%" x2="58%" y2="55%" stroke="var(--lighter-green)" stroke-width="2" stroke-dasharray="5,5"/>
+                  </svg>
                 </div>
+
+                <!-- Details Panel -->
+                <div id="sectorDetails" class="sector-details" style="background: white; border-radius: 12px; padding: 25px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: none; border-top: 5px solid var(--accent-gold);"></div>
               </div>
+
+              <script>
+                const sectorData = {
+                  tourism: {
+                    title: "Tourism",
+                    desc: "Sikkim's tourism sector offers diverse opportunities from adventure tourism to cultural experiences.",
+                    points: [
+                      "19,94,214 Tourist visited in 2024",
+                      "Third Highest Peak: Mount Khangchendzonga",
+                      "KNP -UNESCO World Mixed Heritage Site",
+                      "Nature-Culture-Adventure Tourism",
+                      "Wellness Tourism"
+                    ]
+                  },
+                  agri: {
+                    title: "Agri-Horti Food Processing",
+                    desc: "Sikkim's organic agriculture sector provides unique opportunities in food processing.",
+                    points: [
+                      "Only certified Organic State",
+                      "Investment in large cardamom, ginger, turmeric, dalley chilly processing",
+                      "Buck wheat, Sikkim mandarin, kiwi, green peas processing"
+                    ]
+                  },
+                  pharma: {
+                    title: "Pharmaceutical",
+                    desc: "A growing pharmaceutical hub with significant manufacturing presence.",
+                    points: [
+                      "Pharma Hub",
+                      "More than 55 Major Pharma Units already set up in Sikkim"
+                    ]
+                  },
+                  it: {
+                    title: "IT & ITes",
+                    desc: "Emerging IT sector with focus on digital infrastructure and policy support.",
+                    points: [
+                      "IT & Cyber Village initiatives",
+                      "Sikkim Open Data Acquisition and Dissemination Policy"
+                    ]
+                  },
+                  hydro: {
+                    title: "Micro Hydro Power",
+                    desc: "Substantial hydropower potential with focus on sustainable energy.",
+                    points: [
+                      "Total Potential 8000 MW",
+                      "Small- Micro Hydro Potential 1000 MW"
+                    ]
+                  },
+                  arts: {
+                    title: "Arts & Crafts",
+                    desc: "Rich cultural heritage with diverse traditional crafts.",
+                    points: [
+                      "Wood, Bamboo & Handicrafts",
+                      "Sikkim Carpets, Thanka paintings, Wood carvings",
+                      "Traditional Handlooms"
+                    ]
+                  },
+                  entertainment: {
+                    title: "Film, Music & Sports",
+                    desc: "Growing entertainment and sports infrastructure.",
+                    points: [
+                      "Film city, Music Academy",
+                      "Sports Academy"
+                    ]
+                  }
+                };
+
+                document.querySelectorAll('.sector-node').forEach(node => {
+                  node.addEventListener('click', function() {
+                    const sector = this.getAttribute('data-sector');
+                    const data = sectorData[sector];
+                    const detailsPanel = document.getElementById('sectorDetails');
+                    
+                    if (data) {
+                      // Create points list
+                      const pointsList = data.points.map(point => 
+                        `<li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
+                           <span style="position: absolute; left: 0; color: var(--primary-green);">➤</span>
+                           ${point}
+                         </li>`
+                      ).join('');
+
+                      // Update content
+                      detailsPanel.innerHTML = `
+                        <div style="padding: 20px;">
+                          <h3 style="color: var(--primary-green); margin-top: 0; font-size: 1.8rem; margin-bottom: 20px;">
+                            ${data.title}
+                          </h3>
+                          <p style="color: var(--text-medium); margin-bottom: 25px; line-height: 1.6;">
+                            ${data.desc}
+                          </p>
+                          <div style="background: rgba(46, 125, 50, 0.05); border-radius: 12px; padding: 25px;">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                              ${pointsList}
+                            </ul>
+                          </div>
+                        </div>
+                      `;
+                      
+                      detailsPanel.style.display = 'block';
+                    }
+                  });
+                });
+              </script>
             </div>
 
 <!-- Incentives Section with Comparison Table -->
@@ -984,56 +1132,6 @@
   </div>
 </div>
 
-            <!-- Interactive Map Section -->
-            <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
-              <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
-                <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
-                Strategic Location Advantage
-              </h2>
-              
-              <div style="display: flex; flex-wrap: wrap; gap: 30px;">
-                <div style="flex: 1; min-width: 300px;">
-                  <div id="sikkim-map" style="height: 300px; background: #f5f7fa; border-radius: 8px; position: relative; overflow: hidden;">
-                    <!-- Map visualization would go here -->
-                    <img src="https://industries.sikkim.gov.in/assets/img/sikkim-map.jpg" alt="Sikkim Map" style="width: 100%; height: 100%; object-fit: cover;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px;">
-                      <div style="display: flex; justify-content: space-between;">
-                        <div>
-                          <div style="font-weight: 600;">International Borders:</div>
-                          <div>China, Bhutan, Nepal</div>
-                        </div>
-                        <div>
-                          <div style="font-weight: 600;">Connectivity:</div>
-                          <div>NH10, Pakyong Airport</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div style="flex: 1; min-width: 300px;">
-                  <h3 style="color: var(--dark-green); margin-top: 0;">Connectivity Highlights</h3>
-                  <ul style="margin: 0; padding-left: 20px;">
-                    <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">1</span>
-                      <span>National Highway NH10 connects to major routes</span>
-                    </li>
-                    <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">2</span>
-                      <span>Pakyong Airport (30km from Gangtok) and Bagdogra Airport (88km)</span>
-                    </li>
-                    <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">3</span>
-                      <span>New Jalpaiguri railway station (80km) with upcoming Sikkim Railway</span>
-                    </li>
-                    <li style="display: flex; align-items: flex-start;">
-                      <span style="background: var(--accent-gold); color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">4</span>
-                      <span>Highest road density in India for easy intra-state movement</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
 
             <!-- Full PDF Download CTA -->
             <div style="text-align: center; margin-top: 50px;">
@@ -1797,7 +1895,96 @@
             </div>
           </div>
         </section>
-
+           <!-- Interactive Map Section -->
+           <div class="section-card" style="background: white; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
+            <h2 style="color: var(--primary-green); margin-bottom: 25px; position: relative; padding-bottom: 15px;">
+              <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+              Strategic Location Advantage
+            </h2>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 25px;">
+              <div style="flex: 1; min-width: 300px;">
+                <div id="sikkim-map" style="width: 100%; height: 280px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 18px rgba(44,62,80,0.10); display: flex; align-items: center; justify-content: center; background: #f5f7fa;">
+                  <iframe
+                    width="100%"
+                    height="280"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=88.2,27.1,88.8,28.1&amp;layer=mapnik"
+                    style="border: 1px solid #ccc; border-radius: 8px;"
+                  ></iframe>
+                </div>
+                
+                <!-- Districts of Sikkim Section -->
+                <div style="margin-top: 20px; background: #f8f9fa; border-radius: 8px; padding: 15px; border-left: 4px solid var(--accent-gold);">
+                  <h3 style="color: var(--dark-green); margin-top: 0; margin-bottom: 12px; font-size: 18px;">Districts of Sikkim</h3>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px;">
+                    <div style="background: white; padding: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                      <h4 style="margin: 0 0 3px 0; color: var(--primary-green); font-size: 14px;">Gangtok District</h4>
+                      <p style="margin: 0; font-size: 11px; color: #666;">State Capital</p>
+                    </div>
+                    <div style="background: white; padding: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                      <h4 style="margin: 0 0 3px 0; color: var(--primary-green); font-size: 14px;">Pakyong District</h4>
+                      <p style="margin: 0; font-size: 11px; color: #666;">Airport Hub</p>
+                    </div>
+                    <div style="background: white; padding: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                      <h4 style="margin: 0 0 3px 0; color: var(--primary-green); font-size: 14px;">Namchi District</h4>
+                      <p style="margin: 0; font-size: 11px; color: #666;">Tourism Hub</p>
+                    </div>
+                    <div style="background: white; padding: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                      <h4 style="margin: 0 0 3px 0; color: var(--primary-green); font-size: 14px;">Soreng District</h4>
+                      <p style="margin: 0; font-size: 11px; color: #666;">Agriculture</p>
+                    </div>
+                    <div style="background: white; padding: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                      <h4 style="margin: 0 0 3px 0; color: var(--primary-green); font-size: 14px;">Mangan District</h4>
+                      <p style="margin: 0; font-size: 11px; color: #666;">North Gateway</p>
+                    </div>
+                    <div style="background: white; padding: 8px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                      <h4 style="margin: 0 0 3px 0; color: var(--primary-green); font-size: 14px;">Gyalshing District</h4>
+                      <p style="margin: 0; font-size: 11px; color: #666;">Cultural Hub</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--dark-green); margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; font-size: 18px;">Connectivity Highlights</h3>
+                <ul style="margin: 0; padding-left: 15px;">
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                    <span style="background: var(--accent-gold); color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; flex-shrink: 0; font-size: 12px;">1</span>
+                    <div>
+                      <strong style="display: block; margin-bottom: 2px; font-size: 14px;">Road Network</strong>
+                      <span style="font-size: 13px;">NH10 connects to West Bengal. Additional highways NH310, NH310A, NH717B provide border connectivity.</span>
+                    </div>
+                  </li>
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                    <span style="background: var(--accent-gold); color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; flex-shrink: 0; font-size: 12px;">2</span>
+                    <div>
+                      <strong style="display: block; margin-bottom: 2px; font-size: 14px;">Air Connectivity</strong>
+                      <span style="font-size: 13px;">Pakyong Airport (30km) - Delhi, Kolkata, Guwahati flights. Bagdogra Airport (88km) - 40+ daily flights.</span>
+                    </div>
+                  </li>
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                    <span style="background: var(--accent-gold); color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; flex-shrink: 0; font-size: 12px;">3</span>
+                    <div>
+                      <strong style="display: block; margin-bottom: 2px; font-size: 14px;">Rail Network</strong>
+                      <span style="font-size: 13px;">NJP station (80km) connects major cities. Sevoke-Rangpo Railway coming by 2025.</span>
+                    </div>
+                  </li>
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                    <span style="background: var(--accent-gold); color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; flex-shrink: 0; font-size: 12px;">4</span>
+                    <div>
+                      <strong style="display: block; margin-bottom: 2px; font-size: 14px;">Intra-State Mobility</strong>
+                      <span style="font-size: 13px;">Highest road density in Northeast India (394.3 km per 1000 sq km) with excellent district connectivity.</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
         <!-- Pre-footer -->
         <section class="pre-footer">
           <div class="container">
