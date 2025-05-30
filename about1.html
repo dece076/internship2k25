@@ -120,6 +120,12 @@
       font-size: 14px;
       text-transform: uppercase;
       white-space: nowrap;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar > ul > li > a:hover {
+      color: var(--accent-gold);
     }
 
     /* Dropdown styles */
@@ -973,13 +979,26 @@
                   }
                 };
 
+                // Track which sector is currently selected
+                let currentlySelectedSector = null;
+
                 document.querySelectorAll('.sector-node').forEach(node => {
                   node.addEventListener('click', function() {
                     const sector = this.getAttribute('data-sector');
                     const data = sectorData[sector];
                     const detailsPanel = document.getElementById('sectorDetails');
                     
+                    // If clicking the same sector that's already open, close it
+                    if (currentlySelectedSector === sector && detailsPanel.style.display === 'block') {
+                      detailsPanel.style.display = 'none';
+                      currentlySelectedSector = null;
+                      return;
+                    }
+                    
+                    // Otherwise, show the details for the clicked sector
                     if (data) {
+                      currentlySelectedSector = sector;
+                      
                       // Create points list
                       const pointsList = data.points.map(point => 
                         `<li style="margin-bottom: 12px; position: relative; padding-left: 25px;">
@@ -1177,7 +1196,7 @@
             <h2 style="color: var(--primary-green); font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; text-align: center; letter-spacing: 0.5px;">Featured Projects</h2>
             
             <!-- Navigation Buttons -->
-            <button id="carouselPrev" aria-label="Previous" style="position: absolute; left: 20px; top: 60%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&lt;</button>
+            <button id="carouselPrev" aria-label="Previous" style="position: absolute; left: 4.4px; top: 60%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&lt;</button>
             <button id="carouselNext" aria-label="Next" style="position: absolute; right: 20px; top: 60%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); z-index: 10;">&gt;</button>
 
             <div class="carousel-split-layout" style="display: flex; flex-direction: row; align-items: stretch; gap: 0; height: 500px; transition: opacity 0.3s ease;">
