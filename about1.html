@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en-US">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"> 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Invest in Sikkim - The Green Investment Destination</title>
   <meta content="" name="description">
@@ -55,6 +55,13 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    /* Mobile nav open state */
+    body.mobile-nav-open {
+      overflow: hidden;
     }
     
     /* Top Bar Styles - modified */
@@ -127,6 +134,11 @@
     .navbar > ul > li > a:hover {
       color: var(--accent-gold);
     }
+    
+    /* Hide mobile navigation toggle in desktop mode */
+    .mobile-nav-toggle {
+      display: none;
+    }
 
     /* Dropdown styles */
     .navbar .dropdown ul {
@@ -191,6 +203,63 @@
 
     /* Mobile navigation */
     @media (max-width: 991px) {
+      #header {
+        height: auto;
+        padding: 15px 0;
+      }
+      
+      #header .d-flex {
+        position: relative;
+      }
+      
+      .navbar {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background: var(--nav-green);
+        padding: 60px 20px 0;
+        transition: 0.3s ease-in-out;
+        z-index: 9999;
+        overflow-y: auto;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        display: block !important;
+      }
+      
+      /* Ensure navbar is visible when toggled by our custom script */
+      #navbar.active {
+        right: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      .navbar.mobile-nav-active {
+        right: 0;
+        display: block !important;
+      }
+      
+      .navbar ul {
+        display: block;
+        margin-top: 20px;
+      }
+      
+      .navbar > ul > li {
+        margin-bottom: 10px;
+      }
+      
+      .navbar > ul > li > a {
+        height: auto;
+        padding: 10px 0;
+        font-size: 16px;
+      }
+      
+      /* Mobile nav toggle styles for this media query */
+      .mobile-nav-toggle {
+        display: block; /* Show in mobile mode */
+      }
+
       .navbar .dropdown ul {
         position: static;
         display: none;
@@ -198,19 +267,51 @@
         padding: 5px 0;
         opacity: 1;
         visibility: visible;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
         box-shadow: none;
         transform: none;
+        border-radius: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+      }
+      
+      .navbar .dropdown.mobile-dropdown-active ul {
+        display: block !important;
+        max-height: 500px !important; /* Allow enough height for dropdown content */
+        opacity: 1 !important;
+        visibility: visible !important;
+        padding: 10px !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      /* Ensure dropdown links are visible */
+      .navbar .dropdown ul li a {
+        color: white !important;
+        padding: 8px 15px !important;
+        display: block !important;
+      }
+      
+      .navbar .dropdown.mobile-dropdown-active > a:after {
+        transform: rotate(180deg) translateY(50%);
       }
 
       .navbar .dropdown ul a {
-        color: #333;
+        color: #fff;
         padding: 10px 15px;
       }
 
       .navbar .dropdown ul a:hover {
-        color: var(--nav-green);
-        background: #f8f9fa;
+        color: var(--accent-gold);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Reposition the dropdown arrow in mobile view without adding a new one */
+      .navbar .dropdown > a:after {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
     
@@ -527,16 +628,137 @@
     
     /* Responsive */
     @media (max-width: 768px) {
+      /* Topbar responsive styles */
+      #topbar {
+        height: auto;
+        padding: 10px 0;
+        text-align: center;
+      }
+      
+      #topbar .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      #topbar .logo img {
+        max-height: 80px;
+        margin: 0 auto;
+        display: block;
+      }
+      
+      /* Breadcrumbs responsive */
+      .breadcrumbs h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      
+      .breadcrumbs .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      
+      /* Grid responsive */
       .grid {
         grid-template-columns: 1fr;
       }
       
+      /* Controls responsive */
       .controls {
         flex-direction: column;
       }
       
       .controls input, .controls select {
         width: 100%;
+      }
+      
+      /* Stats section responsive */
+      .stat-value {
+        font-size: 2rem;
+      }
+      
+      .stat-label {
+        font-size: 0.9rem;
+      }
+      
+      /* Modal responsive */
+      .modal-content {
+        padding: 20px;
+        width: 95%;
+      }
+      
+      /* Pre-footer responsive */
+      .pre-footer {
+        padding: 40px 0;
+        text-align: center;
+      }
+      
+      .pre-footer .text-end {
+        text-align: center !important;
+        margin-top: 20px;
+      }
+      
+      /* Footer responsive */
+      .footer-links {
+        margin-bottom: 30px;
+      }
+      
+      /* Old mobile-nav-toggle responsive styles removed */
+      
+      /* Project section responsive */
+      .project-cards-section {
+        padding: 0 10px;
+      }
+      
+      .project-cards-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      #prevProjects, #nextProjects {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+      }
+      
+      .card-img {
+        height: 140px !important;
+      }
+      
+      .card-content {
+        padding: 12px !important;
+      }
+      
+      .card h3 {
+        font-size: 1rem !important;
+      }
+      
+      .large-scale-projects-section {
+        margin: 30px 10px;
+        padding: 20px 10px;
+      }
+      
+      /* Government incentives responsive */
+      .incentives-tabs {
+        flex-direction: column;
+      }
+      
+      .incentives-tabs .tab-btn {
+        width: 100%;
+        border-radius: 6px;
+        margin-bottom: 5px;
+      }
+      
+      .tab-content h3 {
+        font-size: 1.2rem !important;
+      }
+      
+      .comparison-table {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .section-card {
+        padding: 20px 10px !important;
+        margin: 20px 10px !important;
       }
     }
 
@@ -1096,98 +1318,98 @@
 
 <!-- Incentives Section with Comparison Table -->
 <div class="section-card" style="background: white; border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
-  <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
-      <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
+  <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px; padding-left: 10px; padding-right: 10px;">
+      <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 10px;"></span>
       Government Incentives & Subsidies
   </h2>
   
-  <div class="incentives-tabs" style="margin-bottom: 30px;">
-      <button class="tab-btn active" style="padding: 10px 20px; background: var(--primary-green); color: white; border: none; border-radius: 6px 6px 0 0; margin-right: 5px; cursor: pointer;">UNNATI Scheme</button>
-      <button class="tab-btn" style="padding: 10px 20px; background: #e0e0e0; color: var(--text-dark); border: none; border-radius: 6px 6px 0 0; cursor: pointer;">Industrial Policy</button>
-      <button class="tab-btn" style="padding: 10px 20px; background: #e0e0e0; color: var(--text-dark); border: none; border-radius: 6px 6px 0 0; cursor: pointer;">Policy Support</button>
+  <div class="incentives-tabs" style="margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 5px;">
+      <button class="tab-btn active" style="padding: 10px 15px; background: var(--primary-green); color: white; border: none; border-radius: 6px 6px 0 0; cursor: pointer; flex: 1; min-width: 120px; text-align: center; font-size: 0.9rem;">UNNATI Scheme</button>
+      <button class="tab-btn" style="padding: 10px 15px; background: #e0e0e0; color: var(--text-dark); border: none; border-radius: 6px 6px 0 0; cursor: pointer; flex: 1; min-width: 120px; text-align: center; font-size: 0.9rem;">Industrial Policy</button>
+      <button class="tab-btn" style="padding: 10px 15px; background: #e0e0e0; color: var(--text-dark); border: none; border-radius: 6px 6px 0 0; cursor: pointer; flex: 1; min-width: 120px; text-align: center; font-size: 0.9rem;">Policy Support</button>
   </div>
   
   <!-- UNNATI Scheme Content -->
-  <div class="tab-content active" style="display: block;">
+  <div class="tab-content active" style="display: block; padding: 0 10px;">
       <h3><a href="https://unnati.dpiit.gov.in/" style="color: var(--dark-green); margin-bottom: 20px; ">UNNATI Scheme Benefits</a></h3>
-      <div class="comparison-table" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
-              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Zone A Benefits</h4>
+      <div class="comparison-table" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+          <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px; font-size: 1.1rem;">Zone A Benefits</h4>
               <ul style="margin: 0; padding-left: 20px;">
-                  <li style="margin-bottom: 10px;">30% Subsidy (up to ₹5 Cr Capital)</li>
-                  <li style="margin-bottom: 10px;">3% Interest Subsidy</li>
-                  <li>75% Net GST Reimbursement</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">30% Subsidy (up to ₹5 Cr Capital)</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">3% Interest Subsidy</li>
+                  <li style="font-size: 0.95rem;">75% Net GST Reimbursement</li>
               </ul>
           </div>
-          <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
-              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Zone B Benefits</h4>
+          <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px; font-size: 1.1rem;">Zone B Benefits</h4>
               <ul style="margin: 0; padding-left: 20px;">
-                  <li style="margin-bottom: 10px;">50% Subsidy (up to ₹7.5 Cr Capital)</li>
-                  <li style="margin-bottom: 10px;">5% Interest Subsidy</li>
-                  <li>100% Net GST Reimbursement</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">50% Subsidy (up to ₹7.5 Cr Capital)</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">5% Interest Subsidy</li>
+                  <li style="font-size: 0.95rem;">100% Net GST Reimbursement</li>
               </ul>
           </div>
       </div>
   </div>
 
   <!-- Industrial Policy Content -->
-  <div class="tab-content" style="display: none;" data-tab="industrial-policy">
+  <div class="tab-content" style="display: none; padding: 0 10px;" data-tab="industrial-policy">
       <h3 style="color: var(--dark-green); margin-bottom: 20px;">Sikkim Industrial & Investment Policy, 2024</h3>
-      <div class="comparison-table" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
-              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">SGST Reimbursement</h4>
+      <div class="comparison-table" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+          <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px; font-size: 1.1rem;">SGST Reimbursement</h4>
               <ul style="margin: 0; padding-left: 20px;">
-                  <li style="margin-bottom: 10px;">Up to 75% for 10 years on finished products</li>
-                  <li style="margin-bottom: 10px;">Micro Enterprises: 250% of Fixed Capital Investment</li>
-                  <li>Small/Medium/Large: 200% of Fixed Capital Investment</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">Up to 75% for 10 years on finished products</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">Micro Enterprises: 250% of Fixed Capital Investment</li>
+                  <li style="font-size: 0.95rem;">Small/Medium/Large: 200% of Fixed Capital Investment</li>
               </ul>
           </div>
-          <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
-              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px;">Stamp Duty Benefits</h4>
+          <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent-gold);">
+              <h4 style="color: var(--primary-green); margin-top: 0; margin-bottom: 15px; font-size: 1.1rem;">Stamp Duty Benefits</h4>
               <ul style="margin: 0; padding-left: 20px;">
-                  <li style="margin-bottom: 10px;">Up to 50% reimbursement or ₹25 Lakh</li>
-                  <li>Women Entrepreneurs: 100% reimbursement or ₹50 Lakh</li>
+                  <li style="margin-bottom: 8px; font-size: 0.95rem;">Up to 50% reimbursement or ₹25 Lakh</li>
+                  <li style="font-size: 0.95rem;">Women Entrepreneurs: 100% reimbursement or ₹50 Lakh</li>
               </ul>
           </div>
       </div>
   </div>
 
   <!-- Policy Support Content -->
-  <div class="tab-content" style="display: none;" data-tab="policy-support">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+  <div class="tab-content" style="display: none; padding: 0 10px;" data-tab="policy-support">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
       <!-- Industrial/Investment Policy Column -->
       <div>
-        <h3 style="color: var(--dark-green); margin-bottom: 20px;">Industrial & Investment Framework</h3>
-        <div style="display: grid; gap: 20px;">
-          <div style="background: rgba(0, 100, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
-            <h4 style="color: var(--primary-green); margin: 0 0 10px 0;">Sikkim Investment Facilitation Board (2022)</h4>
-            <p style="margin: 0; font-size: 0.95em;">Single-point authority for fast-track clearance of projects, investor hand-holding, and policy implementation.</p>
+        <h3 style="color: var(--dark-green); margin-bottom: 20px; font-size: 1.2rem;">Industrial & Investment Framework</h3>
+        <div style="display: grid; gap: 15px;">
+          <div style="background: rgba(0, 100, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+            <h4 style="color: var(--primary-green); margin: 0 0 10px 0; font-size: 1.05rem;">Sikkim Investment Facilitation Board (2022)</h4>
+            <p style="margin: 0; font-size: 0.9em;">Single-point authority for fast-track clearance of projects, investor hand-holding, and policy implementation.</p>
           </div>
 
-          <div style="background: rgba(0, 100, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
-            <h4><a href="https://www.nsws.gov.in/" style="color: var(--primary-green); margin: 0 0 10px 0;">Single Window System</a></h4>
-            <p style="margin: 0; font-size: 0.95em;">Integrated digital platform for time-bound approvals across 40+ services from various departments.</p>
+          <div style="background: rgba(0, 100, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+            <h4><a href="https://www.nsws.gov.in/" style="color: var(--primary-green); margin: 0 0 10px 0; font-size: 1.05rem;">Single Window System</a></h4>
+            <p style="margin: 0; font-size: 0.9em;">Integrated digital platform for time-bound approvals across 40+ services from various departments.</p>
           </div>
 
-          <div style="background: rgba(0, 100, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
-            <h4 style="color: var(--primary-green); margin: 0 0 10px 0;">Industrial & Investment Promotion Policy 2024</h4>
-            <p style="margin: 0; font-size: 0.95em;">Focuses on green industries, technology adoption, and MSME growth with capital subsidies up to ₹10 crore.</p>
+          <div style="background: rgba(0, 100, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+            <h4 style="color: var(--primary-green); margin: 0 0 10px 0; font-size: 1.05rem;">Industrial & Investment Promotion Policy 2024</h4>
+            <p style="margin: 0; font-size: 0.9em;">Focuses on green industries, technology adoption, and MSME growth with capital subsidies up to ₹10 crore.</p>
           </div>
         </div>
       </div>
 
       <!-- Sectoral Policies Column -->
       <div>
-        <h3 style="color: var(--dark-green); margin-bottom: 20px;">Sector-Specific Initiatives</h3>
-        <div style="display: grid; gap: 20px;">
-          <div style="background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
-            <h4 style="color: var(--primary-green); margin: 0 0 10px 0;">Eco-Tourism & Tourism Policies</h4>
-            <p style="margin: 0; font-size: 0.95em;">Promotes sustainable tourism with homestay subsidies (2015 Policy) and adventure tourism infrastructure development.</p>
+        <h3 style="color: var(--dark-green); margin-bottom: 20px; font-size: 1.2rem;">Sector-Specific Initiatives</h3>
+        <div style="display: grid; gap: 15px;">
+          <div style="background: rgba(255, 215, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
+            <h4 style="color: var(--primary-green); margin: 0 0 10px 0; font-size: 1.05rem;">Eco-Tourism & Tourism Policies</h4>
+            <p style="margin: 0; font-size: 0.9em;">Promotes sustainable tourism with homestay subsidies (2015 Policy) and adventure tourism infrastructure development.</p>
           </div>
 
-          <div style="background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
-            <h4 style="color: var(--primary-green); margin: 0 0 10px 0;">Technology & Innovation</h4>
-            <p style="margin: 0; font-size: 0.95em;">IT Policy (tech parks) + Start-up Policy 2025 (draft) offering incubation support and seed funding up to ₹25 lakh.</p>
+          <div style="background: rgba(255, 215, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
+            <h4 style="color: var(--primary-green); margin: 0 0 10px 0; font-size: 1.05rem;">Technology & Innovation</h4>
+            <p style="margin: 0; font-size: 0.9em;">IT Policy (tech parks) + Start-up Policy 2025 (draft) offering incubation support and seed funding up to ₹25 lakh.</p>
           </div>
 
           <div style="background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
@@ -1220,7 +1442,7 @@
         </section>
 
         <!-- Large Scale Projects Section -->
-        <section class="large-scale-projects-section" style="margin: 40px 0; padding: 30px 0; background: linear-gradient(120deg, #e8f5e9 0%, #b2dfdb 100%); box-shadow: 0 8px 40px 0 rgba(44, 62, 80, 0.10); border-radius: 24px; max-width: 1200px; margin-left: auto; margin-right: auto; position: relative;">
+        <section class="large-scale-projects-section" style="margin: 40px 15px; padding: 25px 0; background: linear-gradient(120deg, #e8f5e9 0%, #b2dfdb 100%); box-shadow: 0 8px 40px 0 rgba(44, 62, 80, 0.10); border-radius: 24px; max-width: 1200px; margin-left: auto; margin-right: auto; position: relative;">
           
           <!-- Title Section with Texture -->
           <div class="container" style="max-width: 1100px; margin: 0 auto; margin-bottom: 30px;">
@@ -1446,25 +1668,25 @@
         </script>
 
         <!-- Project Cards Section -->
-        <section class="project-cards-section" style="margin: 60px 0;">
-          <div class="container">
+        <section class="project-cards-section" style="margin: 40px 0; padding: 0 15px;">
+          <div class="container" style="max-width: 100%;">
             <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
               <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
               Investment Opportunities
             </h2>
 
             <!-- Project Controls -->
-            <div class="controls" style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 15px;">
-              <input type="text" id="searchInput" placeholder="Search by project or location" onkeyup="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; flex: 1; min-width: 200px;">
+            <div class="controls" style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 10px;">
+              <input type="text" id="searchInput" placeholder="Search by project or location" onkeyup="filterProjects()" style="padding: 12px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 1rem; width: 100%; box-sizing: border-box;">
               
-              <select id="modeFilter" onchange="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; min-width: 150px;">
+              <select id="modeFilter" onchange="filterProjects()" style="padding: 12px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 1rem; width: 100%; box-sizing: border-box;">
                 <option value="">All Modes</option>
                 <option value="Private">Private</option>
                 <option value="PPP">PPP</option>
                 <option value="Joint Venture">Joint Venture</option>
               </select>
 
-              <select id="sectorFilter" onchange="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; min-width: 150px;">
+              <select id="sectorFilter" onchange="filterProjects()" style="padding: 12px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 1rem; width: 100%; box-sizing: border-box;">
                 <option value="">All Departments</option>
                 <option value="Power Department">Power Department</option>
                 <option value="Tourism & Civil Aviation Department">Tourism & Civil Aviation Department</option>
@@ -1480,11 +1702,11 @@
 
             <!-- Project Cards Container with Navigation -->
             <div style="position: relative;">
-              <div class="grid" id="projectGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; transition: transform 0.5s ease-in-out;"></div>
+              <div class="grid" id="projectGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; transition: transform 0.5s ease-in-out;"></div>
               
               <!-- Navigation Arrows -->
-              <button id="prevProjects" onclick="navigateProjects('prev')" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); opacity: 0.5; transition: opacity 0.3s ease;">&lt;</button>
-              <button id="nextProjects" onclick="navigateProjects('next')" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); transition: opacity 0.3s ease;">&gt;</button>
+              <button id="prevProjects" onclick="navigateProjects('prev')" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); opacity: 0.5; transition: opacity 0.3s ease; z-index: 5;">&lt;</button>
+              <button id="nextProjects" onclick="navigateProjects('next')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); transition: opacity 0.3s ease; z-index: 5;">&gt;</button>
             </div>
 
             <!-- Project Cards JavaScript -->
@@ -1813,7 +2035,26 @@
             ];
 
             let currentPage = 0;
-            const projectsPerPage = 8;
+            let projectsPerPage = 8;
+            
+            // Adjust projects per page based on screen size
+            function updateProjectsPerPage() {
+              if (window.innerWidth <= 768) {
+                projectsPerPage = 2; // Mobile: show 2 projects per page
+              } else if (window.innerWidth <= 992) {
+                projectsPerPage = 4; // Tablet: show 4 projects per page
+              } else {
+                projectsPerPage = 8; // Desktop: show 8 projects per page
+              }
+              // Reset to first page when screen size changes
+              currentPage = 0;
+              filterProjects();
+            }
+            
+            // Update on resize
+            window.addEventListener('resize', updateProjectsPerPage);
+            // Initial setup
+            updateProjectsPerPage();
 
             function renderProjects(data) {
               const grid = document.getElementById('projectGrid');
@@ -1844,13 +2085,15 @@
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 card.innerHTML = `
-                  <div class="card-img" style="background-image: url('${p.image}')"></div>
-                  <div class="card-content">
-                    <h3>${p.name}</h3>
-                    <p><strong>Investment:</strong> ₹${p.cost} Cr</p>
-                    <p><strong>Location:</strong> ${p.location}</p>
-                    <span class="card-tag">${p.department}</span>
-                    <span class="card-tag">${p.mode}</span>
+                  <div class="card-img" style="background-image: url('${p.image}'); height: 160px;"></div>
+                  <div class="card-content" style="padding: 15px;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${p.name}</h3>
+                    <p style="margin-bottom: 6px; font-size: 0.85rem;"><strong>Investment:</strong> ₹${p.cost} Cr</p>
+                    <p style="margin-bottom: 6px; font-size: 0.85rem;"><strong>Location:</strong> ${p.location}</p>
+                    <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px;">
+                      <span class="card-tag" style="font-size: 0.7rem; padding: 2px 8px;">${p.department}</span>
+                      <span class="card-tag" style="font-size: 0.7rem; padding: 2px 8px;">${p.mode}</span>
+                    </div>
                   </div>
                 `;
                 card.onclick = () => openModal(p);
@@ -1944,16 +2187,17 @@
 
             <!-- Modal for Project Details -->
             <div class="modal" id="projectModal" onclick="closeModal()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
-              <div class="modal-content" onclick="event.stopPropagation();" style="background-color: white; padding: 30px; border-radius: 10px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 5px 30px rgba(0,0,0,0.3); position: relative;">
-                <h2 id="modalTitle" style="color: var(--primary-green); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--lighter-green);"></h2>
-                <p><strong>Location:</strong> <span id="modalLocation"></span></p>
-                <p><strong>Investment:</strong> ₹<span id="modalCost"></span> Cr</p>
-                <p><strong>Mode:</strong> <span id="modalMode"></span></p>
-                <p><strong>Department:</strong> <span id="modalDepartment"></span></p>
-                <p><strong>Employment Potential:</strong> <span id="modalEmployment"></span></p>
-                <p><strong>Govt. Support:</strong> <span id="modalSupport"></span></p>
-                <p><strong>Key Features:</strong> <span id="modalFeatures"></span></p>
-                <button onclick="closeModal()" style="background-color: var(--primary-green); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: all 0.3s;">Close</button>
+              <div class="modal-content" onclick="event.stopPropagation();" style="background-color: white; padding: 20px; border-radius: 10px; max-width: 600px; width: 95%; max-height: 85vh; overflow-y: auto; box-shadow: 0 5px 30px rgba(0,0,0,0.3); position: relative; margin: 15px;">
+                <button onclick="closeModal()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-medium);">×</button>
+                <h2 id="modalTitle" style="color: var(--primary-green); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--lighter-green); padding-right: 30px;"></h2>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Location:</strong> <span id="modalLocation"></span></p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Investment:</strong> ₹<span id="modalCost"></span> Cr</p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Mode:</strong> <span id="modalMode"></span></p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Department:</strong> <span id="modalDepartment"></span></p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Employment:</strong> <span id="modalEmployment"></span></p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Govt. Support:</strong> <span id="modalSupport"></span></p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong style="min-width: 100px; display: inline-block;">Key Features:</strong> <span id="modalFeatures"></span></p>
+                <button onclick="closeModal()" style="background-color: var(--primary-green); color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: all 0.3s; width: 100%; font-size: 1rem; font-weight: 500;">Close</button>
               </div>
             </div>
           </div>
@@ -2191,6 +2435,117 @@
   <script src="https://industries.sikkim.gov.in/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/vendor/php-email-form/validate.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/js/main.js"></script>
+  
+  <!-- New Mobile Navigation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create a new mobile toggle button
+      const toggleBtn = document.createElement('button');
+      toggleBtn.id = 'mobileNavBtn';
+      toggleBtn.innerHTML = '☰';
+      toggleBtn.style.position = 'fixed';
+      toggleBtn.style.right = '15px';
+      toggleBtn.style.top = '220px';
+      toggleBtn.style.zIndex = '10000';
+      toggleBtn.style.backgroundColor = '#28813d';
+      toggleBtn.style.color = 'white';
+      toggleBtn.style.padding = '8px 12px';
+      toggleBtn.style.borderRadius = '5px';
+      toggleBtn.style.fontSize = '24px';
+      toggleBtn.style.cursor = 'pointer';
+      toggleBtn.style.border = 'none';
+      toggleBtn.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+      // Only show toggle button in mobile mode (screen width < 992px)
+      toggleBtn.style.display = window.innerWidth < 992 ? 'block' : 'none';
+      document.body.appendChild(toggleBtn);
+      
+      // Update toggle button visibility on window resize
+      window.addEventListener('resize', function() {
+        toggleBtn.style.display = window.innerWidth < 992 ? 'block' : 'none';
+      });
+      
+      const navbar = document.querySelector('#navbar');
+      
+      // Simple toggle function
+      let navbarOpen = false;
+      
+      toggleBtn.addEventListener('click', function() {
+        navbarOpen = !navbarOpen;
+        
+        if (navbarOpen) {
+          // Open navbar
+          navbar.classList.add('active');
+          navbar.style.right = '0';
+          navbar.style.display = 'block';
+          navbar.style.visibility = 'visible';
+          navbar.style.opacity = '1';
+          toggleBtn.innerHTML = '✕';
+          document.body.style.overflow = 'hidden';
+        } else {
+          // Close navbar
+          navbar.classList.remove('active');
+          navbar.style.right = '-300px';
+          toggleBtn.innerHTML = '☰';
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Handle dropdown toggles
+      const dropdownLinks = document.querySelectorAll('#navbar .dropdown > a');
+      
+      dropdownLinks.forEach(link => {
+        // Dropdown indicator is already added via CSS, no need to add it here
+        
+        link.addEventListener('click', function(e) {
+          if (window.innerWidth < 992) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const parent = this.parentElement;
+            const submenu = this.nextElementSibling;
+            
+            // Close other open dropdowns
+            dropdownLinks.forEach(otherLink => {
+              if (otherLink !== link) {
+                const otherParent = otherLink.parentElement;
+                const otherSubmenu = otherLink.nextElementSibling;
+                
+                otherParent.classList.remove('mobile-dropdown-active');
+                if (otherSubmenu) {
+                  otherSubmenu.style.display = 'none';
+                  otherSubmenu.style.maxHeight = '0';
+                }
+              }
+            });
+            
+            // Toggle active class
+            parent.classList.toggle('mobile-dropdown-active');
+            
+            // Toggle submenu visibility
+            if (parent.classList.contains('mobile-dropdown-active')) {
+              submenu.style.display = 'block';
+              submenu.style.maxHeight = '500px';
+              submenu.style.opacity = '1';
+              submenu.style.visibility = 'visible';
+              indicator.innerHTML = ' ▲';
+            } else {
+              submenu.style.maxHeight = '0';
+              submenu.style.opacity = '0';
+              indicator.innerHTML = ' ▼';
+              setTimeout(() => {
+                if (!parent.classList.contains('mobile-dropdown-active')) {
+                  submenu.style.display = 'none';
+                  submenu.style.visibility = 'hidden';
+                }
+              }, 300);
+            }
+          }
+        });
+      });
+    });
+  </script>
+  
+  </script>
   <script>
   // District bounding boxes and centers for OpenStreetMap
   const districtMapData = {
@@ -2236,6 +2591,8 @@
         iframe.src = `https://www.openstreetmap.org/export/embed.html?bbox=${map.bbox}&layer=mapnik&marker=${map.center}`;
       }
     });
+  });
+  
   });
   </script>
 </body>
