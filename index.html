@@ -377,7 +377,7 @@
         z-index: 999;
       }
       .navbar ul.active {
-        display: flex;
+        display: flex !important;
       }
       .navbar > ul > li > a {
         height: 48px;
@@ -1791,7 +1791,7 @@
   <header id="header">
     <div class="d-flex">
       <nav id="navbar" class="navbar">
-        <ul>
+        <ul id="mainNavMenu">
           <li><a href="/">HOME</a></li>
           <li class="dropdown">
             <a href="#"><span>ABOUT US</span></a>
@@ -3083,7 +3083,7 @@
             ],
             investment: "Rs. 500 Cr.",
             cost: "500",
-            image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/f7/e2/42/exterior.jpg?w=1200&h=-1&s=1"
+            image: "https://cdn.pixabay.com/photo/2021/08/16/05/31/film-projector-6549354_1280.jpg"
           },
           {
             name: "AVGC – XR",
@@ -4011,7 +4011,7 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.querySelector('.navbar ul');
+    const navMenu = document.getElementById('mainNavMenu');
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', function(e) {
         e.stopPropagation();
