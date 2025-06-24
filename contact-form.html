@@ -780,17 +780,24 @@
   <script src="https://industries.sikkim.gov.in/assets/vendor/php-email-form/validate.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/js/main.js"></script>
   
-  <!-- Form Submission Script -->
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
+    // Initialize EmailJS with your user ID
+    (function(){
+      emailjs.init('zyW2qLnGCbMNkua_A'); // <-- Replace with your EmailJS user ID
+    })();
+
     document.getElementById('investmentContactForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      
-      // Here you would normally send the form data to a server
-      // For demonstration, we'll just show an alert
-      alert('Thank you for your inquiry! Our team will contact you shortly.');
-      
-      // Reset the form
-      this.reset();
+      // Send the form using EmailJS
+      emailjs.sendForm('service_nq6zlzf', 'template_miqjbwy', this) // <-- Replace with your Service ID and Template ID
+        .then(function() {
+          alert('Thank you for your inquiry! Our team will contact you shortly.');
+          document.getElementById('investmentContactForm').reset();
+        }, function(error) {
+          alert('There was an error sending your message. Please try again later.');
+        });
     });
   </script>
 </body>
