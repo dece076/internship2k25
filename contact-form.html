@@ -950,13 +950,13 @@
   <script>
     // Initialize EmailJS with your user ID
     (function(){
-      emailjs.init('zyW2qLnGCbMNkua_A'); // <-- Replace with your EmailJS user ID
+      emailjs.init('hAJOTrLC6dm99K4l'); // <-- Replace with your EmailJS user ID
     })();
 
     document.getElementById('investmentContactForm').addEventListener('submit', function(event) {
       event.preventDefault();
       // Send the form using EmailJS
-      emailjs.sendForm('service_nq6zlzf', 'template_miqjbwy', this) // <-- Replace with your Service ID and Template ID
+      emailjs.sendForm('service_lu3kvom', 'template_2r4a2wz', this) // <-- Replace with your Service ID and Template ID
         .then(function() {
           alert('Thank you for your inquiry! Our team will contact you shortly.');
           document.getElementById('investmentContactForm').reset();
