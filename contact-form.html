@@ -945,23 +945,62 @@
   <script src="https://industries.sikkim.gov.in/assets/vendor/php-email-form/validate.js"></script>
   <script src="https://industries.sikkim.gov.in/assets/js/main.js"></script>
   
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!-- EmailJS SDK - Updated to latest version -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // Initialize EmailJS with your user ID
+    // Initialize EmailJS with your public key
     (function(){
-      emailjs.init('hAJOTrLC6dm99K4l'); // <-- Replace with your EmailJS user ID
+      emailjs.init({
+        publicKey: 'ohAJOTrLC6dm99K4l' // Your EmailJS public key
+      });
     })();
 
     document.getElementById('investmentContactForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      // Send the form using EmailJS
-      emailjs.sendForm('service_lu3kvom', 'template_2r4a2wz', this) // <-- Replace with your Service ID and Template ID
-        .then(function() {
+      
+      // Show loading state
+      const submitBtn = this.querySelector('.btn-submit');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // Collect form data including checkboxes
+      const formData = new FormData(this);
+      const interests = [];
+      const checkboxes = this.querySelectorAll('input[name="interest[]"]:checked');
+      checkboxes.forEach(checkbox => interests.push(checkbox.value));
+      
+      // Create template parameters
+      const templateParams = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        company: formData.get('company') || 'Not specified',
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+        district: formData.get('district') || 'Not specified',
+        interests: interests.length > 0 ? interests.join(', ') : 'Not specified',
+        from_name: formData.get('name'),
+        reply_to: formData.get('email')
+      };
+
+      console.log('Sending email with params:', templateParams); // Debug log
+
+      // Send the email using EmailJS
+      emailjs.send('service_lu3kvom', 'template_2r4a2wz', templateParams)
+        .then(function(response) {
+          console.log('Email sent successfully:', response);
           alert('Thank you for your inquiry! Our team will contact you shortly.');
           document.getElementById('investmentContactForm').reset();
-        }, function(error) {
-          alert('There was an error sending your message. Please try again later.');
+        })
+        .catch(function(error) {
+          console.error('EmailJS Error:', error);
+          alert('There was an error sending your message. Please try again later.\n\nError details: ' + (error.text || error.message || 'Unknown error'));
+        })
+        .finally(function() {
+          // Reset button state
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
         });
     });
 
