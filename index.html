@@ -322,7 +322,8 @@
       transform: translateY(10px);
     }
 
-    .navbar .dropdown:hover > ul {
+    .navbar .dropdown:hover > ul,
+    .navbar .dropdown.active > ul {
       visibility: visible;
       opacity: 1;
       transform: translateY(0);
@@ -364,40 +365,184 @@
       top: -2px;
     }
 
-    /* Mobile navigation */
+    /* Mobile navigation - Horizontal Scrollable */
     @media (max-width: 991px) {
-      .navbar ul {
-        display: none;
-        flex-direction: column;
-        background: var(--nav-green);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        z-index: 999;
+      /* Hide or minimize topbar on mobile */
+      #topbar {
+        height: 80px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
       }
-      .navbar ul.active {
-        display: flex !important;
+      
+      #topbar .logo img {
+        max-height: 60px !important;
+        margin: 0;
       }
-      .navbar > ul > li > a {
-        height: 48px;
-        padding: 0 16px;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-      .mobile-nav-toggle {
-        display: block !important;
-        font-size: 2rem;
-        color: #fff;
-        cursor: pointer;
-        margin-left: auto;
-        padding: 0 16px;
-        z-index: 2000;
+      
+      #header {
         position: relative;
       }
-    }
-    @media (min-width: 992px) {
+      
+      /* Add scroll indicator shadows */
+      #header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 60px;
+        background: linear-gradient(to left, var(--nav-green), transparent);
+        z-index: 998;
+        pointer-events: none;
+        opacity: 0.8;
+      }
+      
+      .navbar {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scroll-behavior: smooth;
+        position: relative;
+      }
+      
+      .navbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+      
+      .navbar ul {
+        display: flex !important;
+        flex-direction: row;
+        background: var(--nav-green);
+        width: max-content;
+        min-width: 100%;
+        margin: 0;
+        padding: 0 20px 0 0; /* Add right padding for scroll indicator */
+        list-style: none;
+      }
+      
+      .navbar > ul > li {
+        flex-shrink: 0;
+        position: relative;
+      }
+      
+      .navbar > ul > li > a {
+        height: 60px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        font-size: 13px;
+        min-width: max-content;
+        border-right: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .navbar > ul > li > a:hover,
+      .navbar > ul > li > a:active {
+        background-color: rgba(255,255,255,0.1);
+        color: var(--accent-gold);
+      }
+      
+      .navbar > ul > li:last-child > a {
+        border-right: none;
+      }
+      
+      /* Hide mobile toggle button since we're always showing the nav */
       .mobile-nav-toggle {
         display: none !important;
+      }
+      
+      /* Override desktop dropdown styles for mobile */
+      .navbar .dropdown ul {
+        position: fixed !important;
+        left: 5px !important;
+        right: 5px !important;
+        top: 140px !important; /* Position below header */
+        width: auto !important;
+        min-width: auto !important;
+        max-width: calc(100vw - 10px) !important;
+        transform: translateY(-10px) !important;
+        z-index: 9999 !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 10px 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        background: #ffffff !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease !important;
+        border: 1px solid #e0e0e0 !important;
+      }
+      
+      .navbar .dropdown:hover > ul,
+      .navbar .dropdown.active > ul {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+      }
+      
+      .navbar .dropdown ul li {
+        min-width: auto !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        width: 100% !important;
+      }
+      
+      .navbar .dropdown ul li:last-child {
+        border-bottom: none !important;
+      }
+      
+      .navbar .dropdown ul a {
+        color: #333 !important;
+        padding: 15px 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        transition: all 0.3s ease !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        background: transparent !important;
+        font-size: 15px !important;
+        min-height: 50px !important; /* Touch-friendly size */
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .navbar .dropdown ul a:hover,
+      .navbar .dropdown ul a:active,
+      .navbar .dropdown ul a:focus {
+        color: var(--nav-green) !important;
+        background: #f8f9fa !important;
+        padding-left: 25px !important;
+      }
+      
+      /* Active dropdown indicator */
+      .navbar .dropdown.active > a {
+        background-color: rgba(255,255,255,0.15) !important;
+        color: var(--accent-gold) !important;
+      }
+      
+      /* Backdrop for dropdown */
+      .navbar .dropdown.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.1);
+        z-index: 9998;
+        pointer-events: none;
+      }
+      
+      /* Touch-friendly improvements */
+      .navbar > ul > li > a {
+        min-height: 44px; /* iOS recommended touch target size */
+        touch-action: manipulation;
       }
     }
     
@@ -1772,6 +1917,62 @@
     }
     body {
       overflow-x: hidden !important;
+    }
+
+    /* Department-specific styles */
+    .department-container {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .department-container:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .department-container h3 {
+      color: var(--primary-green);
+      margin-bottom: 15px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .department-container h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-gold);
+      border-radius: 2px;
+    }
+
+    .department-container ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .department-container ul li {
+      margin-bottom: 10px;
+    }
+
+    .department-container ul li a {
+      color: var(--text-medium);
+      transition: all 0.3s ease;
+    }
+
+    .department-container ul li a:hover {
+      color: var(--primary-green);
+      padding-left: 5px;
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
