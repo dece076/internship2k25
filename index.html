@@ -365,7 +365,7 @@
       top: -2px;
     }
 
-    /* Mobile navigation - Horizontal Scrollable */
+    /* Mobile navigation - Hamburger Menu */
     @media (max-width: 991px) {
       /* Hide or minimize topbar on mobile */
       #topbar {
@@ -383,166 +383,223 @@
       
       #header {
         position: relative;
-      }
-      
-      /* Add scroll indicator shadows */
-      #header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 20px;
-        height: 60px;
-        background: linear-gradient(to left, var(--nav-green), transparent);
-        z-index: 998;
-        pointer-events: none;
-        opacity: 0.8;
-      }
-      
-      .navbar {
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        scroll-behavior: smooth;
-        position: relative;
-      }
-      
-      .navbar::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-      }
-      
-      .navbar ul {
-        display: flex !important;
-        flex-direction: row;
-        background: var(--nav-green);
-        width: max-content;
-        min-width: 100%;
-        margin: 0;
-        padding: 0 20px 0 0; /* Add right padding for scroll indicator */
-        list-style: none;
-      }
-      
-      .navbar > ul > li {
-        flex-shrink: 0;
-        position: relative;
-      }
-      
-      .navbar > ul > li > a {
-        height: 60px;
-        padding: 0 16px;
-        display: flex;
+        justify-content: space-between;
         align-items: center;
-        white-space: nowrap;
-        font-size: 13px;
-        min-width: max-content;
-        border-right: 1px solid rgba(255,255,255,0.1);
-        transition: all 0.3s ease;
+        padding: 0 15px;
       }
       
-      .navbar > ul > li > a:hover,
-      .navbar > ul > li > a:active {
-        background-color: rgba(255,255,255,0.1);
-        color: var(--accent-gold);
-      }
-      
-      .navbar > ul > li:last-child > a {
-        border-right: none;
-      }
-      
-      /* Hide mobile toggle button since we're always showing the nav */
+      /* Mobile navigation toggle button - Force visibility */
       .mobile-nav-toggle {
-        display: none !important;
-      }
-      
-      /* Override desktop dropdown styles for mobile */
-      .navbar .dropdown ul {
-        position: fixed !important;
-        left: 5px !important;
-        right: 5px !important;
-        top: 140px !important; /* Position below header */
-        width: auto !important;
-        min-width: auto !important;
-        max-width: calc(100vw - 10px) !important;
-        transform: translateY(-10px) !important;
-        z-index: 9999 !important;
         display: block !important;
-        margin: 0 !important;
-        padding: 10px 0 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        background: #ffffff !important;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        position: fixed !important;
+        top: 90px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+        background: var(--nav-green) !important;
+        border: 2px solid white !important;
         border-radius: 8px !important;
+        cursor: pointer !important;
+        z-index: 99999 !important;
         transition: all 0.3s ease !important;
-        border: 1px solid #e0e0e0 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
       }
       
-      .navbar .dropdown:hover > ul,
-      .navbar .dropdown.active > ul {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateY(0) !important;
+      .mobile-nav-toggle:hover {
+        background: var(--dark-green) !important;
+        transform: scale(1.1) !important;
       }
       
-      .navbar .dropdown ul li {
-        min-width: auto !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-        width: 100% !important;
-      }
-      
-      .navbar .dropdown ul li:last-child {
-        border-bottom: none !important;
-      }
-      
-      .navbar .dropdown ul a {
-        color: #333 !important;
-        padding: 15px 20px !important;
-        display: flex !important;
-        align-items: center !important;
+      /* Create hamburger lines */
+      .mobile-nav-toggle::before,
+      .mobile-nav-toggle::after,
+      .mobile-nav-toggle {
         transition: all 0.3s ease !important;
-        text-decoration: none !important;
-        font-weight: 500 !important;
-        background: transparent !important;
-        font-size: 15px !important;
-        min-height: 50px !important; /* Touch-friendly size */
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-
-      .navbar .dropdown ul a:hover,
-      .navbar .dropdown ul a:active,
-      .navbar .dropdown ul a:focus {
-        color: var(--nav-green) !important;
-        background: #f8f9fa !important;
-        padding-left: 25px !important;
       }
       
-      /* Active dropdown indicator */
-      .navbar .dropdown.active > a {
-        background-color: rgba(255,255,255,0.15) !important;
-        color: var(--accent-gold) !important;
+      .mobile-nav-toggle::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 15px !important;
+        left: 12px !important;
+        width: 24px !important;
+        height: 3px !important;
+        background: white !important;
+        border-radius: 2px !important;
+        box-shadow: 0 8px 0 white, 0 16px 0 white !important;
       }
       
-      /* Backdrop for dropdown */
-      .navbar .dropdown.active::before {
-        content: '';
+      /* When menu is open, transform to X */
+      .mobile-nav-toggle.active::before {
+        top: 23px !important;
+        transform: rotate(45deg) !important;
+        box-shadow: 0 0 0 white !important;
+      }
+      
+      .mobile-nav-toggle.active::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 23px !important;
+        left: 12px !important;
+        width: 24px !important;
+        height: 3px !important;
+        background: white !important;
+        border-radius: 2px !important;
+        transform: rotate(-45deg) !important;
+      }
+      
+      /* Hide main navigation by default on mobile */
+      .navbar ul {
+        display: none;
         position: fixed;
-        top: 0;
+        top: 140px; /* Below topbar and header */
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0,0,0,0.1);
+        background: var(--nav-green);
         z-index: 9998;
-        pointer-events: none;
+        padding: 20px 0;
+        margin: 0;
+        list-style: none;
+        flex-direction: column;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      /* Show navigation when active */
+      .navbar.mobile-nav-active ul {
+        display: flex !important;
+      }
+      
+      /* Mobile menu backdrop */
+      .navbar.mobile-nav-active::before {
+        content: '';
+        position: fixed;
+        top: 140px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9997;
+      }
+      
+      /* Mobile navigation items */
+      .navbar ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .navbar ul li:last-child {
+        border-bottom: none;
+      }
+      
+      .navbar ul li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 25px;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        min-height: 60px;
+        box-sizing: border-box;
+        background: transparent;
+      }
+      
+      .navbar ul li a:hover,
+      .navbar ul li a:focus {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--accent-gold);
+        padding-left: 35px;
+      }
+      
+      /* Dropdown styles for mobile */
+      .navbar .dropdown > a::after {
+        content: '+';
+        font-size: 20px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+      
+      .navbar .dropdown.active > a::after {
+        transform: rotate(45deg);
+      }
+      
+      .navbar .dropdown ul {
+        position: static !important;
+        display: none !important;
+        background: rgba(0, 0, 0, 0.2) !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+      }
+      
+      .navbar .dropdown.active ul {
+        display: block !important;
+      }
+      
+      .navbar .dropdown ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.1);
+      }
+      
+      .navbar .dropdown ul li:last-child {
+        border-bottom: none;
+      }
+      
+      .navbar .dropdown ul a {
+        padding: 15px 45px !important;
+        font-size: 15px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: transparent !important;
+        min-height: 50px !important;
+      }
+      
+      .navbar .dropdown ul a:hover,
+      .navbar .dropdown ul a:focus {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: var(--accent-gold) !important;
+        padding-left: 55px !important;
+      }
+      
+      /* Close button animation */
+      .mobile-nav-toggle.bi-x {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      
+      /* Smooth animations */
+      .navbar ul {
+        animation: slideInFromTop 0.3s ease-out;
+      }
+      
+      @keyframes slideInFromTop {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       
       /* Touch-friendly improvements */
-      .navbar > ul > li > a {
-        min-height: 44px; /* iOS recommended touch target size */
+      .navbar ul li a {
         touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Prevent body scroll when menu is open */
+      body.mobile-nav-active {
+        overflow: hidden;
       }
     }
     
@@ -2141,7 +2198,6 @@
             <!-- Tab Navigation -->
             <div class="tab-nav">
               <button class="policy-tab-btn active" data-policy-tab="industrial-policy">Industrial Policy</button>
-              <button class="policy-tab-btn" data-policy-tab="sectoral-policies">Sectoral Policies</button>
               <button class="policy-tab-btn" data-policy-tab="incentives">Incentives & Subsidies</button>
               <button class="policy-tab-btn" data-policy-tab="schemes">Special Schemes</button>
             </div>
@@ -2298,223 +2354,7 @@
                   </div>
                 </div>
                 
-                <!-- Sectoral Policies Tab -->
-                <div class="policy-tab-content" data-policy-tab="sectoral-policies" style="display: none;">
-                  <h4 style="color: var(--primary-green); margin-bottom: 20px;">Sector-Specific Policies</h4>
-                  
-                  <div style="background: #F9FCF9; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid #e0e0e0;">
-                    <!-- Table Header -->
-                    <div style="display: flex; background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%); color: white; padding: 12px 15px; font-weight: 600; font-size: 14px;">
-                      <div style="flex: 2; text-align: left;">Policy Name</div>
-                      <div style="flex: 1; text-align: left;">Department</div>
-                      <div style="flex: 0.8; text-align: center;">Status</div>
-                      <div style="flex: 0.8; text-align: center;">Action</div>
-                    </div>
-                    
-                    <!-- Tourism Policy Row -->
-                    <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: white; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#F2F9F2'" onmouseout="this.style.backgroundColor='white'">
-                      <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Tourism Policy</div>
-                      <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Tourism Dept</div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                      </div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <a href="assets/pdf/Sikkim_Tourism_Policy_2022.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                          <i class="fas fa-download"></i> Download
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- IT & Startup Policy Row -->
-                    <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: #F2F9F2; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#E8F5E9'" onmouseout="this.style.backgroundColor='#F2F9F2'">
-                      <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">IT & Startup Policy</div>
-                      <div style="flex: 1; padding: 12px 15px; font-size: 14px;">IT Department</div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                      </div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <a href="assets/pdf/Sikkim_IT_Startup_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                          <i class="fas fa-download"></i> Download
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- Solar Energy Policy Row -->
-                    <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: white; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#F2F9F2'" onmouseout="this.style.backgroundColor='white'">
-                      <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Solar Energy Policy</div>
-                      <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Energy Dept</div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                      </div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <a href="assets/pdf/Sikkim_Solar_Energy_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                          <i class="fas fa-download"></i> Download
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- Organic Farming Policy Row -->
-                    <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: #F2F9F2; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#E8F5E9'" onmouseout="this.style.backgroundColor='#F2F9F2'">
-                      <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Organic Farming Policy</div>
-                      <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Agriculture</div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <span style="display: inline-block; padding: 4px 8px; background-color: rgba(255, 152, 0, 0.1); color: #f57c00; border-radius: 4px; font-size: 12px; font-weight: 500;">⚠️ Draft</span>
-                      </div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <a href="assets/pdf/Sikkim_Organic_Policy_Draft.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                          <i class="fas fa-download"></i> Download
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- Pharmaceutical Policy Row -->
-                    <div style="display: flex; background-color: white; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#F2F9F2'" onmouseout="this.style.backgroundColor='white'">
-                      <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Pharmaceutical Policy</div>
-                      <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Industries</div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                      </div>
-                      <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                        <a href="assets/pdf/Sikkim_Pharma_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                          <i class="fas fa-download"></i> Download
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Responsive styles for mobile -->
-                  <style>
-                    @media (max-width: 992px) {
-                      [data-policy-tab="sectoral-policies"] [style*="display: flex"] > div:nth-child(2) {
-                        display: none !important;
-                      }
-                      [data-policy-tab="sectoral-policies"] [style*="display: flex"] > div:nth-child(1) {
-                        flex: 2.5 !important;
-                      }
-                    }
-                    
-                    @media (max-width: 768px) {
-                      [data-policy-tab="sectoral-policies"] [style*="display: flex"] {
-                        flex-wrap: wrap !important;
-                      }
-                      [data-policy-tab="sectoral-policies"] [style*="display: flex"] > div:nth-child(1) {
-                        flex: 100% !important;
-                        border-bottom: 1px dashed #e0e0e0 !important;
-                        padding-bottom: 8px !important;
-                        margin-bottom: 8px !important;
-                      }
-                      [data-policy-tab="sectoral-policies"] [style*="display: flex"] > div:nth-child(3) {
-                        flex: 1 !important;
-                      }
-                      [data-policy-tab="sectoral-policies"] [style*="display: flex"] > div:nth-child(4) {
-                        flex: 1 !important;
-                      }
-                    }
-                  </style>
-                  
-                  <!-- Additional policies (initially hidden) -->
-                  <div id="additionalPolicies" style="display: none; margin-top: 20px;">
-                    <div style="background: #F9FCF9; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid #e0e0e0;">
-                      <!-- Additional Policy Rows -->
-                      
-                      <!-- Handloom & Handicrafts Policy Row -->
-                      <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: white; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#F2F9F2'" onmouseout="this.style.backgroundColor='white'">
-                        <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Handloom & Handicrafts Policy</div>
-                        <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Textiles Dept</div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                        </div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <a href="assets/pdf/Sikkim_Handloom_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                            <i class="fas fa-download"></i> Download
-                          </a>
-                        </div>
-                      </div>
-                      
-                      <!-- Eco-Tourism Policy Row -->
-                      <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: #F2F9F2; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#E8F5E9'" onmouseout="this.style.backgroundColor='#F2F9F2'">
-                        <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Eco-Tourism Policy</div>
-                        <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Tourism Dept</div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                        </div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <a href="assets/pdf/Sikkim_Ecotourism_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                            <i class="fas fa-download"></i> Download
-                          </a>
-                        </div>
-                      </div>
-                      
-                      <!-- Food Processing Policy Row -->
-                      <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: white; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#F2F9F2'" onmouseout="this.style.backgroundColor='white'">
-                        <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Food Processing Policy</div>
-                        <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Industries</div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                        </div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <a href="assets/pdf/Sikkim_Food_Processing_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                            <i class="fas fa-download"></i> Download
-                          </a>
-                        </div>
-                      </div>
-                      
-                      <!-- Renewable Energy Policy Row -->
-                      <div style="display: flex; border-bottom: 1px solid #e0e0e0; background-color: #F2F9F2; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#E8F5E9'" onmouseout="this.style.backgroundColor='#F2F9F2'">
-                        <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">Renewable Energy Policy</div>
-                        <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Energy Dept</div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <span style="display: inline-block; padding: 4px 8px; background-color: rgba(255, 152, 0, 0.1); color: #f57c00; border-radius: 4px; font-size: 12px; font-weight: 500;">⚠️ Draft</span>
-                        </div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <a href="assets/pdf/Sikkim_Renewable_Energy_Draft.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                            <i class="fas fa-download"></i> Download
-                          </a>
-                        </div>
-                      </div>
-                      
-                      <!-- MSME Development Policy Row -->
-                      <div style="display: flex; background-color: white; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#F2F9F2'" onmouseout="this.style.backgroundColor='white'">
-                        <div style="flex: 2; padding: 12px 15px; font-weight: 600; color: var(--primary-green);">MSME Development Policy</div>
-                        <div style="flex: 1; padding: 12px 15px; font-size: 14px;">Industries</div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <span style="display: inline-block; padding: 4px 8px; background-color: rgba(76, 175, 80, 0.1); color: #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 500;">✅ Active</span>
-                        </div>
-                        <div style="flex: 0.8; padding: 12px 15px; text-align: center;">
-                          <a href="assets/pdf/Sikkim_MSME_Policy.pdf" target="_blank" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; transition: all 0.2s;">
-                            <i class="fas fa-download"></i> Download
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="text-center mt-4">
-                    <button id="viewAllPoliciesBtn" class="btn" style="background-color: var(--primary-green); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 500;">
-                      <i class="fas fa-plus-circle" style="margin-right: 8px;"></i> View All Sectoral Policies
-                    </button>
-                  </div>
-                  
-                  <script>
-                    // View All Policies button functionality
-                    document.addEventListener('DOMContentLoaded', function() {
-                      const viewAllPoliciesBtn = document.getElementById('viewAllPoliciesBtn');
-                      const additionalPolicies = document.getElementById('additionalPolicies');
-                      
-                      viewAllPoliciesBtn.addEventListener('click', function() {
-                        if (additionalPolicies.style.display === 'none') {
-                          // Show additional policies
-                          additionalPolicies.style.display = 'block';
-                          viewAllPoliciesBtn.innerHTML = '<i class="fas fa-minus-circle" style="margin-right: 8px;"></i> Show Less';
-                        } else {
-                          // Hide additional policies
-                          additionalPolicies.style.display = 'none';
-                          viewAllPoliciesBtn.innerHTML = '<i class="fas fa-plus-circle" style="margin-right: 8px;"></i> View All Sectoral Policies';
-                        }
-                      });
-                    });
-                  </script>
-                </div>
+
                 
                 <!-- Incentives Tab -->
                 <div class="policy-tab-content" data-policy-tab="incentives" style="display: none;">
@@ -4211,39 +4051,110 @@
   </script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Mobile navigation toggle
     const navToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.getElementById('mainNavMenu');
-    if (navToggle && navMenu) {
+    const navbar = document.querySelector('.navbar');
+    const body = document.body;
+    
+    if (navToggle && navbar) {
       navToggle.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
-        navMenu.classList.toggle('active');
+        
+        // Toggle mobile navigation
+        navbar.classList.toggle('mobile-nav-active');
+        body.classList.toggle('mobile-nav-active');
+        
+        // Toggle hamburger/close icon
+        if (navbar.classList.contains('mobile-nav-active')) {
+          navToggle.classList.add('active');
+        } else {
+          navToggle.classList.remove('active');
+          // Close all dropdowns when closing menu
+          document.querySelectorAll('.navbar .dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+          });
+        }
       });
-      // Close menu when a link is clicked
-      navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-        });
-      });
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-          navMenu.classList.remove('active');
+      
+      // Close menu when clicking on backdrop
+      navbar.addEventListener('click', function(e) {
+        if (e.target === navbar && navbar.classList.contains('mobile-nav-active')) {
+          navbar.classList.remove('mobile-nav-active');
+          body.classList.remove('mobile-nav-active');
+          navToggle.classList.remove('active');
+          // Close all dropdowns
+          document.querySelectorAll('.navbar .dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+          });
         }
       });
     }
+    
     // Dropdown toggle for mobile
     document.querySelectorAll('.navbar .dropdown > a').forEach(link => {
       link.addEventListener('click', function(e) {
         if (window.innerWidth <= 991) {
           e.preventDefault();
+          e.stopPropagation();
+          
           const parent = this.parentElement;
-          parent.classList.toggle('open');
-          // Close other open dropdowns
-          document.querySelectorAll('.navbar .dropdown').forEach(drop => {
-            if (drop !== parent) drop.classList.remove('open');
+          const isActive = parent.classList.contains('active');
+          
+          // Close all other dropdowns
+          document.querySelectorAll('.navbar .dropdown').forEach(dropdown => {
+            if (dropdown !== parent) {
+              dropdown.classList.remove('active');
+            }
+          });
+          
+          // Toggle current dropdown
+          if (isActive) {
+            parent.classList.remove('active');
+          } else {
+            parent.classList.add('active');
+          }
+        }
+      });
+    });
+    
+    // Close mobile menu when clicking on regular links (not dropdowns)
+    document.querySelectorAll('.navbar ul li:not(.dropdown) > a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 991 && navbar.classList.contains('mobile-nav-active')) {
+          navbar.classList.remove('mobile-nav-active');
+          body.classList.remove('mobile-nav-active');
+          navToggle.classList.remove('active');
+        }
+      });
+    });
+    
+    // Close mobile menu when clicking on dropdown links
+    document.querySelectorAll('.navbar .dropdown ul a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 991 && navbar.classList.contains('mobile-nav-active')) {
+          navbar.classList.remove('mobile-nav-active');
+          body.classList.remove('mobile-nav-active');
+          navToggle.classList.remove('active');
+          // Close all dropdowns
+          document.querySelectorAll('.navbar .dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
           });
         }
       });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 991) {
+        // Reset mobile navigation on desktop
+        navbar.classList.remove('mobile-nav-active');
+        body.classList.remove('mobile-nav-active');
+        navToggle.classList.remove('active');
+        document.querySelectorAll('.navbar .dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+      }
     });
   });
   </script>
