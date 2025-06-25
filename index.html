@@ -3243,7 +3243,7 @@
           <div class="container">
             <h2 style="color: var(--primary-green); margin-bottom: 30px; position: relative; padding-bottom: 15px;">
               <span style="background: var(--accent-gold); width: 60px; height: 4px; position: absolute; bottom: 0; left: 0;"></span>
-              Investment Opportunities
+              Investment Opportunities for Commerce and Industries Department
             </h2>
 
             <!-- Project Controls -->
@@ -3257,73 +3257,39 @@
                 <option value="Joint Venture">Joint Venture</option>
               </select>
 
-              <select id="sectorFilter" onchange="filterProjects()" style="padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 0.9rem; min-width: 150px;">
-                <option value="">All Departments</option>
-                <option value="Power Department">Power Department</option>
-                <option value="Tourism & Civil Aviation Department">Tourism & Civil Aviation Department</option>
-                <option value="Information Technology Department">Information Technology Department</option>
-                <option value="Commerce & Industries Department">Commerce & Industries Department</option>
-                <option value="Health & Family Welfare Department">Health & Family Welfare Department</option>
-                <option value="Education Department">Education Department</option>
-                <option value="Sports & Youth Affairs Department">Sports & Youth Affairs Department</option>
-                <option value="Urban Development Department">Urban Development Department</option>
-                <option value="Agriculture Department">Agriculture Department</option>
-              </select>
-            </div>
 
-            <!-- Project Cards Container with Navigation -->
-            <div style="position: relative;">
-              <div class="grid" id="projectGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; transition: transform 0.5s ease-in-out;"></div>
-              
-              <!-- Desktop Navigation Arrows -->
-              <button id="prevProjects" onclick="navigateProjects('prev')" class="desktop-nav-arrow" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); opacity: 0.5; transition: opacity 0.3s ease;">&lt;</button>
-              <button id="nextProjects" onclick="navigateProjects('next')" class="desktop-nav-arrow" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); transition: opacity 0.3s ease;">&gt;</button>
             </div>
+ <!-- Project Cards Container with Navigation -->
+ <div style="position: relative;">
+  <div class="grid" id="projectGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; transition: transform 0.5s ease-in-out;"></div>
+  
+  <!-- Desktop Navigation Arrows -->
+  <button id="prevProjects" onclick="navigateProjects('prev')" class="desktop-nav-arrow" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); opacity: 0.5; transition: opacity 0.3s ease;">&lt;</button>
+  <button id="nextProjects" onclick="navigateProjects('next')" class="desktop-nav-arrow" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: white; border: 2px solid var(--accent-gold); color: var(--primary-green); border-radius: 50%; width: 44px; height: 44px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.08); transition: opacity 0.3s ease;">&gt;</button>
+</div>
 
-            <!-- Mobile Pagination Controls -->
-            <div id="mobilePagination" class="mobile-pagination" style="display: none; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; padding: 20px 0;">
-              <button id="prevProjectsMobile" onclick="navigateProjects('prev')" class="mobile-nav-btn" style="background: var(--primary-green); color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <i class="bi bi-chevron-left"></i> Previous
-              </button>
-              
-              <div class="page-info" style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-medium); font-weight: 500;">
-                <span>Page</span>
-                <span id="currentPageNum" style="background: var(--primary-green); color: white; padding: 6px 12px; border-radius: 6px; font-weight: 600;">1</span>
-                <span>of</span>
-                <span id="totalPagesNum" style="color: var(--primary-green); font-weight: 600;">1</span>
-              </div>
-              
-              <button id="nextProjectsMobile" onclick="navigateProjects('next')" class="mobile-nav-btn" style="background: var(--primary-green); color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                Next <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
+<!-- Mobile Pagination Controls -->
+<div id="mobilePagination" class="mobile-pagination" style="display: none; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; padding: 20px 0;">
+  <button id="prevProjectsMobile" onclick="navigateProjects('prev')" class="mobile-nav-btn" style="background: var(--primary-green); color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <i class="bi bi-chevron-left"></i> Previous
+  </button>
+  
+  <div class="page-info" style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-medium); font-weight: 500;">
+    <span>Page</span>
+    <span id="currentPageNum" style="background: var(--primary-green); color: white; padding: 6px 12px; border-radius: 6px; font-weight: 600;">1</span>
+    <span>of</span>
+    <span id="totalPagesNum" style="color: var(--primary-green); font-weight: 600;">1</span>
+  </div>
+  
+  <button id="nextProjectsMobile" onclick="navigateProjects('next')" class="mobile-nav-btn" style="background: var(--primary-green); color: white; border: none; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    Next <i class="bi bi-chevron-right"></i>
+  </button>
+</div>
 
             <!-- Project Cards JavaScript -->
             <script>
-            // Project data and functions(dinesh)
+            // Project data and functions
             const projects = [
-              {
-                name: "Small Hydro Power Projects",
-                location: "Teesta, Rangit River basin",
-                cost: "150-8000",
-                mode: "Private",
-                department: "Power Department",
-                employment: "500+ direct jobs",
-                support: "Facilitation for survey & Project Clearance",
-                features: "Clean energy generation, Long-term PPA with state, High ROI potential",
-                image: "https://fl-i.thgim.com/public/incoming/9r0t41/article69241690.ece/alternates/LANDSCAPE_1200/Teesta%20river%20Hydroelectric%20Power%20Project%20sikkim.jpg"
-              },
-              {
-                name: "Gangtok Ropeway Project",
-                location: "Gangtok (11KM)",
-                cost: "500",
-                mode: "PPP",
-                department: "Tourism & Civil Aviation Department",
-                employment: "150+ direct and indirect jobs",
-                support: "Facilitation for survey & Project Clearance",
-                features: "Scenic mountain views, High tourist footfall, Integrated with urban transport",
-                image: "https://static.toiimg.com/photo/96812416.cms"
-              },
               {
                 name: "Industrial Parks",
                 location: "Gangtok, Pakyong, Namchi, Soreng, Gyalzing District",
@@ -3334,28 +3300,6 @@
                 support: "Identification of location, Project Clearance, Funding through Govt. schemes",
                 features: "Strategic locations, Infrastructure support, Government backing",
                 image: "https://www.groundxero.in/wp-content/uploads/2019/04/sikkim-plant-1.jpg"
-              },
-              {
-                name: "Heli Services",
-                location: "Gangtok",
-                cost: "100",
-                mode: "PPP",
-                department: "Tourism & Civil Aviation Department",
-                employment: "50+ jobs",
-                support: "Project Clearance, facilitation by Tourism Deptt.",
-                features: "Connectivity to Bagdogra, Kolkata, Bhutan, Nepal, High-end tourism potential",
-                image: "https://www.accretionaviation.com/images/service/chopper--ride-in-gangtok.webp"
-              },
-              {
-                name: "IT/ITES/BPO Park",
-                location: "Gangtok/Namchi District",
-                cost: "100",
-                mode: "Private",
-                department: "Information Technology Department",
-                employment: "300+ skilled jobs",
-                support: "Project Clearance, facilitation by IT Deptt.",
-                features: "High-speed connectivity, Skilled English-speaking workforce, Peaceful environment",
-                image: "https://pbs.twimg.com/media/Gc5ZQQZaAAMIwOn.jpg:large"
               },
               {
                 name: "e-Vehicle Manufacturing",
@@ -3369,39 +3313,6 @@
                 image: "https://bsmedia.business-standard.com/_media/bs/img/article/2020-09/14/full/1600029403-4678.jpg?im=FeatureCrop,size=(826,465)"
               },
               {
-                name: "Sports Academy",
-                location: "Pakyong/Rangpo",
-                cost: "100",
-                mode: "Private",
-                department: "Sports & Youth Affairs Department",
-                employment: "100+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "World-class facilities, Training programs, Sports tourism potential",
-                image: "https://sikkimtourism.org/wp-content/uploads/2024/10/Paljor-Stadium.jpg"
-              },
-              {
-                name: "5-Star Hotel",
-                location: "Multiple Districts",
-                cost: "100",
-                mode: "Private",
-                department: "Tourism & Civil Aviation Department",
-                employment: "150+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "Luxury accommodation, Tourism growth, High ROI potential",
-                image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/f7/e2/42/exterior.jpg?w=1200&h=-1&s=1"
-              },
-              {
-                name: "Luxury Wellness Spa",
-                location: "Multiple Districts",
-                cost: "50",
-                mode: "Private",
-                department: "Health & Family Welfare Department",
-                employment: "80+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "Ayurvedic treatments, Traditional medicine, Wellness tourism",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWKlV6f44TsiOQz5E2OzxhxtpqZcYjIkV2zw&s"
-              },
-              {
                 name: "Logistics Park",
                 location: "Rangpo, Sikkim",
                 cost: "100",
@@ -3410,7 +3321,7 @@
                 employment: "120+ jobs",
                 support: "Project Clearance, facilitation by C&I Deptt",
                 features: "Warehousing, Cold storage, Strategic location",
-                image: "https://nomadicweekends.com/blog/wp-content/uploads/2019/03/Lachung-City-In-between-the-Mountain-Ranges.jpg"
+                image: "https://bhoomiipark.com/wp-content/uploads/2024/08/Logistic-Park-1.jpg"
               },
               {
                 name: "Creative Design Studio",
@@ -3421,7 +3332,7 @@
                 employment: "100+ jobs",
                 support: "Project Clearance, facilitation by C&I Deptt",
                 features: "3D/Animation facilities, Creative hub, Digital innovation",
-                image: "https://images.unsplash.com/photo-1615966193211-0f95039cd7b0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHNpa2tpbXxlbnwwfHwwfHx8MA%3D%3D"
+                image: "https://www.shutterstock.com/image-photo/team-work-group-young-business-600nw-572804956.jpg"
               },
               {
                 name: "Film Studio",
@@ -3433,17 +3344,6 @@
                 support: "Project Clearance, facilitation by C&I Deptt",
                 features: "Editing facilities, Production support, Scenic locations",
                 image: "https://media1.thrillophilia.com/filestore/hoy3ugtqqecbvtn8t80sycyfjkt8_1524230200_flimcityyjpg.jpg?w=400&dpr=2"
-              },
-              {
-                name: "International Residential School",
-                location: "Pakyong District",
-                cost: "100",
-                mode: "Private",
-                department: "Education Department",
-                employment: "100+ jobs",
-                support: "Project Clearance, facilitation by Education Deptt.",
-                features: "World-class education, International curriculum, Residential facilities",
-                image: "https://holycrosstadong.com/content/images/1.jpg"
               },
               {
                 name: "Micro Breweries",
@@ -3466,17 +3366,6 @@
                 support: "Project Clearance, facilitation by C&I Deptt, Part Funding through Govt. schemes",
                 features: "Traditional craftsmanship, Export potential, Cultural heritage",
                 image: "https://spaindustrialdesign.wordpress.com/wp-content/uploads/2020/12/5-1.jpg?w=1000"
-              },
-              {
-                name: "Coffee Plantation and Processing",
-                location: "Multiple Districts",
-                cost: "30",
-                mode: "PPP",
-                department: "Agriculture Department",
-                employment: "60+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt, Part Funding through Govt. schemes",
-                features: "Organic coffee, Value addition, Export potential",
-                image: "https://live-less-ordinary.com/wp-content/uploads/2013/09/temi-tea-gardens-sikkim.jpg"
               },
               {
                 name: "Packing Material Manufacturing",
@@ -3523,28 +3412,6 @@
                 image: "https://static.investindia.gov.in/s3fs-public/2021-05/shutterstock_295431182.jpg"
               },
               {
-                name: "Water Sports Complex",
-                location: "Gangtok, Pakyong dist.",
-                cost: "5",
-                mode: "PPP",
-                department: "Tourism & Civil Aviation Department",
-                employment: "25+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "River rafting, Boating, Camping facilities",
-                image: "https://lh4.googleusercontent.com/proxy/ahpYEDhnckJvl3Z_D61QAIawnFFslrtPEnUfNCZExKIeKgbVAb6uvSeTmgIXwSpCm0j2asujD6ndzVqh1GY3kaUJKqYQXejpgZYaqwGgLaT-ag"
-              },
-              {
-                name: "International Convention Centre",
-                location: "Near Gangtok",
-                cost: "50",
-                mode: "PPP",
-                department: "Tourism & Civil Aviation Department",
-                employment: "70+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "Club House, Sports complex, Swimming pool",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9UsLqlmGCGV_3VcQJ5Eou3CIb0fR3TMfVOVYehygJ20S-tn4XmGkmocW8&s=10"
-              },
-              {
                 name: "Traditional Furniture Making Cluster",
                 location: "Multiple Districts",
                 cost: "20",
@@ -3565,28 +3432,6 @@
                 support: "Facilitation by C&I Deptt, Part funding from Govt. schemes",
                 features: "Handmade toys, Local employment, Export potential",
                 image: "https://dsource.in/sites/default/files/resource/soft-toys-sikkim/introduction/images/introduction-toys-1000.jpg"
-              },
-              {
-                name: "Solid Waste Management",
-                location: "Gangtok, Namchi",
-                cost: "30",
-                mode: "PPP",
-                department: "Urban Development Department",
-                employment: "40+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "Modern waste management, Environmental impact, Sustainable solution",
-                image: "https://www.nrep.org/sites/default/files/assets/recycling.jpg"
-              },
-              {
-                name: "Hazardous Waste Management",
-                location: "Rangpo, Melli",
-                cost: "30",
-                mode: "PPP",
-                department: "Urban Development Department",
-                employment: "35+ jobs",
-                support: "Project Clearance, facilitation by C&I Deptt",
-                features: "Specialized waste handling, Environmental compliance, Industrial support",
-                image: "https://cdn.britannica.com/74/141174-050-7319FDFF/Incineration-plant-Brescia-Italy.jpg"
               },
               {
                 name: "Mineral Water Packaging",
@@ -3615,12 +3460,12 @@
                 location: "Rumtek",
                 cost: "100",
                 mode: "Private",
-                department: "Tourism & Civil Aviation Department",
-                employment: "80+ jobs",
+                department: "Commerce & Industries Department",
+                employment: "29 jobs",
                 support: "Project Clearance, facilitation by C&I Deptt",
-                features: "Family entertainment, Tourism attraction, Local employment",
+                features: "Amusement and recreation, Tourism boost, Family entertainment",
                 image: "https://media-cdn.tripadvisor.com/media/photo-s/03/cd/eb/cc/khangchendzonga-tourist.jpg"
-              }
+              },
             ];
 
             let currentPage = 0;
@@ -3643,27 +3488,9 @@
               const end = start + projectsPerPage;
               const currentProjects = data.slice(start, end);
               
-              // Update desktop navigation buttons
+              // Update navigation buttons
               document.getElementById('prevProjects').style.opacity = currentPage === 0 ? '0.5' : '1';
               document.getElementById('nextProjects').style.opacity = currentPage >= totalPages - 1 ? '0.5' : '1';
-              
-              // Update mobile pagination
-              const currentPageNum = document.getElementById('currentPageNum');
-              const totalPagesNum = document.getElementById('totalPagesNum');
-              const prevMobile = document.getElementById('prevProjectsMobile');
-              const nextMobile = document.getElementById('nextProjectsMobile');
-              
-              if (currentPageNum) currentPageNum.textContent = currentPage + 1;
-              if (totalPagesNum) totalPagesNum.textContent = totalPages;
-              
-              if (prevMobile) {
-                prevMobile.disabled = currentPage === 0;
-                prevMobile.style.opacity = currentPage === 0 ? '0.5' : '1';
-              }
-              if (nextMobile) {
-                nextMobile.disabled = currentPage >= totalPages - 1;
-                nextMobile.style.opacity = currentPage >= totalPages - 1 ? '0.5' : '1';
-              }
               
               // Render current page's projects
               currentProjects.forEach(p => {
@@ -3678,7 +3505,6 @@
                     <h3>${p.name}</h3>
                     <p><strong>Investment:</strong> ₹${p.cost} Cr</p>
                     <p><strong>Location:</strong> ${p.location}</p>
-                    <span class="card-tag card-tag-department">${p.department}</span>
                     <span class="card-tag card-tag-mode">${p.mode}</span>
                   </div>
                 `;
@@ -3709,13 +3535,11 @@
             function getFilteredProjects() {
               const search = document.getElementById('searchInput').value.toLowerCase();
               const mode = document.getElementById('modeFilter').value;
-              const department = document.getElementById('sectorFilter').value;
 
               return projects.filter(p => {
                 return (
                   (p.name.toLowerCase().includes(search) || p.location.toLowerCase().includes(search)) &&
-                  (mode === '' || p.mode === mode) &&
-                  (department === '' || p.department === department)
+                  (mode === '' || p.mode === mode)
                 );
               });
             }
@@ -3730,7 +3554,6 @@
               document.getElementById('modalLocation').textContent = project.location;
               document.getElementById('modalCost').textContent = project.cost;
               document.getElementById('modalMode').textContent = project.mode;
-              document.getElementById('modalDepartment').textContent = project.department;
               document.getElementById('modalEmployment').textContent = project.employment;
               document.getElementById('modalSupport').textContent = project.support;
               document.getElementById('modalFeatures').textContent = project.features;
@@ -3778,7 +3601,6 @@
                 <p><strong>Location:</strong> <span id="modalLocation"></span></p>
                 <p><strong>Investment:</strong> ₹<span id="modalCost"></span> Cr</p>
                 <p><strong>Mode:</strong> <span id="modalMode"></span></p>
-                <p><strong>Department:</strong> <span id="modalDepartment"></span></p>
                 <p><strong>Employment Potential:</strong> <span id="modalEmployment"></span></p>
                 <p><strong>Govt. Support:</strong> <span id="modalSupport"></span></p>
                 <p><strong>Key Features:</strong> <span id="modalFeatures"></span></p>
